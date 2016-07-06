@@ -3,6 +3,7 @@ import AppBar from 'material-ui/AppBar';
 import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 import UserActions from '../../actions/UserActions';
+import API from '../../API';
 
 import {
 	Button,
@@ -17,7 +18,8 @@ export default class LoginComponent extends React.Component {
 
 	onSubmit(e) {
 		e.preventDefault();
-		UserActions.userRegister(_state);
+		// UserActions.userRegister(_state);
+		API.registerUser(_state);
 	}
 
 	render() {
