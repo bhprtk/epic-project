@@ -6,7 +6,7 @@ let API = {
 		console.log('user in API.js', user.email);
 		post('/users/register', user)
 		.then(res => {
-			console.log('res');
+			console.log('res', res);
 		})
 		.catch(err => {
 			console.log('err', err);

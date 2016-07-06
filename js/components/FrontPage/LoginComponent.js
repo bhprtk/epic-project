@@ -26,16 +26,16 @@ export default class LoginComponent extends React.Component {
 		_state = this.state;
 		return (
 			<div className="container text-center">
-				<div className="col-md-8 col-md-offset-2">
+				<div className="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
 					<h2>Sign up</h2>
 
 					<Paper
 						style={style}
 						zDepth={5}
-						className="col-md-12"
+						className="col-md-12 col-xs-12 col-sm-12"
 						>
 
-						<div className="col-md-6">
+						<div className="col-md-6 col-xs-12 col-sm-12">
 
 							<form
 								onSubmit={this.onSubmit}>
