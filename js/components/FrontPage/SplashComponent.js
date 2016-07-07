@@ -1,40 +1,40 @@
 import React from 'react';
-import ChangeStateActions from '../../actions/ChangeStateActions';
-import { Link } from 'react-router';
+// import ChangeStateActions from '../../actions/ChangeStateActions';
+// import { Link } from 'react-router';
 
 export default class SplashComponent extends React.Component {
 
-	constructor(props) {
-		super(props);
-	}
+	// constructor(props) {
+	// 	super(props);
+	//
+	// 	this.join = this.join.bind(this);
+	// }
 
-	join() {
-		console.log('lol');
-	}
+	// join() {
+	// 	console.log('lol');
+	// }
 
 	render() {
+		console.log('here pleaseee');
 		return (
 				<div className="text-center" style={styles.splash}>
 					<div className="container">
 
 						<div>
 							<p style={styles.titleDiv}>create or join a startup</p>
-							<h1>START ME UP</h1>
+							<h1>START ME UPasdfasdfasdf</h1>
 
 							<button
 								className="btn btn-default btn-lg"
 								style={styles.buttons}>
-								CREATE
+								CREATEdasfdsfa
 							</button>
 
 							<button
 								onClick={this.join}
 								className="btn btn-default btn-lg"
 								style={styles.buttons}>
-								<Link to="/signup">
-
 									JOIN
-								</Link>
 							</button>
 						</div>
 

@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
+import path from 'path';
 
 import dotenv from 'dotenv';
 dotenv.load();
@@ -25,6 +26,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static('public'));
+
+app.use('/', (req, res) => {
+  res.send(path.resolve(__dirname, 'index.html'));
+})
 
 app.use('/users', users);
 

@@ -10,12 +10,7 @@ import { Route, IndexRoute } from 'react-router';
 export default class MainComponent extends React.Component {
 	render() {
 		return (
-			<Route path="home">
-				<IndexRoute component={SplashComponent} />
-				{/*<NavbarComponent />*/}
-				{/*<SplashComponent />				*/}
-			</Route>
-
+				<SplashComponent />
 		)
 	}
 }

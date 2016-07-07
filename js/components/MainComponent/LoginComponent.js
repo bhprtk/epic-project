@@ -3,6 +3,8 @@ import AppBar from 'material-ui/AppBar';
 import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 import UserActions from '../../actions/UserActions';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 import API from '../../API';
 
 import {
@@ -25,9 +27,11 @@ export default class LoginComponent extends React.Component {
 	render() {
 		_state = this.state;
 		return (
-			<div className="container text-center">
+			<MuiThemeProvider>
+			<div className="container text-center" style={container}>
 				<div className="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
 					<h2>Sign up</h2>
+					<hr/>
 
 					<Paper
 						style={style}
@@ -78,9 +82,15 @@ export default class LoginComponent extends React.Component {
 
 				</div>
 			</div>
-
+		</MuiThemeProvider>
 		)
 	}
+}
+
+const container = {
+	// background: '#4E80B2',
+	height: "100vh",
+	width: "100%",
 }
 
 const style = {
@@ -89,7 +99,8 @@ const style = {
   display: 'inline-block',
 	padding: 10,
 	marginTop: 50,
-	height: 500
+	height: 500,
+	background: '#2A364A'
 };
 
 const input = {
