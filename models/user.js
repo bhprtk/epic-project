@@ -20,14 +20,15 @@ let userSchema = new mongoose.Schema({
 userSchema.statics.register = (newUser, cb) => {
 	console.log('newUser', newUser);
 	User.findOne({email: newUser.email }, (err, dbUser) => {
-		if(err || dbUser) return cb(err || { error: 'Username not available.' });
+		if(err || dbUser) return cb(err || { error: 'Email is already in use.' });
 
 		bcrypt.hash(newUser.password, 12, (err, hash) => {
 			if(err) return cb(err);
 
 			var user = new User({
 				email: newUser.email,
-				password: hash
+				password: hash,
+				displayName: newUser.displayName
 			});
 
 			console.log('new user', user);

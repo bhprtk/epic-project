@@ -27,10 +27,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static('public'));
 
-app.use('/', (req, res) => {
-  res.send(path.resolve(__dirname, 'index.html'));
-})
-
 app.use('/users', users);
 
 app.listen(PORT, err => {

@@ -1,4 +1,5 @@
 import {get, post, ajax} from 'jquery';
+import UserActions from './actions/UserActions';
 
 let API = {
 	registerUser(user) {
@@ -6,10 +7,10 @@ let API = {
 		console.log('user in API.js', user.email);
 		post('/users/register', user)
 		.then(res => {
-			console.log('res', res);
+			UserActions.newUser(res);
 		})
 		.catch(err => {
-			console.log('err', err);
+			UserActions.newUser(err);
 		})
 	}
 }

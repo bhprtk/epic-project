@@ -1,5 +1,4 @@
 import React from 'react';
-import ChangeStateActions from '../../actions/ChangeStateActions';
 import { Link } from 'react-router';
 export default class SplashComponent extends React.Component {
 
@@ -19,7 +18,6 @@ export default class SplashComponent extends React.Component {
 						<div>
 							<p style={styles.titleDiv}>create or join a startup</p>
 							<h1>START ME UP</h1>
-								{this.props.children}
 								<Link to="/signup">
 									<button
 										className="btn btn-default btn-lg"

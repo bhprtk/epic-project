@@ -1,4 +1,4 @@
 export let ActionTypes = {
-	REGISTER_USER: 'REGISTER_USER',
-	GOTO_REGISTER: 'GOTO_REGISTER'
+	NEW_USER: 'NEW_USER',
+	FUCK_ME: 'FUCK_ME'
 };
