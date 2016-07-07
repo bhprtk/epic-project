@@ -1,6 +1,5 @@
 import React from 'react';
 import ChangeStateActions from '../../actions/ChangeStateActions';
-import { Link } from 'react-router';
 
 export default class SplashComponent extends React.Component {
 
@@ -9,7 +8,7 @@ export default class SplashComponent extends React.Component {
 	}
 
 	join() {
-		console.log('lol');
+		ChangeStateActions.gotoRegister();
 	}
 
 	render() {
@@ -31,10 +30,7 @@ export default class SplashComponent extends React.Component {
 								onClick={this.join}
 								className="btn btn-default btn-lg"
 								style={styles.buttons}>
-								<Link to="/signup">
-
-									JOIN
-								</Link>
+								JOIN
 							</button>
 						</div>
 
