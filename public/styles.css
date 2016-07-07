@@ -2,3 +2,7 @@
 	color: green;
 	padding-left: 20px;
 }
+.title {
+	vertical-align: middle;
+	line-height: 90px;
+}
