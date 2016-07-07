@@ -7,7 +7,8 @@ import LoginComponent from "./components/MainComponent/LoginComponent";
 import {
   Router,
   Route,
-  IndexRoute
+  IndexRoute,
+  hashHistory
 } from 'react-router';
 
 const App = () => (
@@ -17,10 +18,7 @@ const App = () => (
 );
 
 ReactDOM.render((
-  <Router>
-    <Route path="/" component={App}>
-      <IndexRoute component={MainComponent}/>
-      <Route path="signup" component={LoginComponent}/>
-    </Route>
+  <Router history={hashHistory}>
+    <Route path="/" component={App}/>
   </Router>
 ), document.getElementById('react'));
