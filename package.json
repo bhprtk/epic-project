@@ -35,6 +35,7 @@
     "react-dom": "^15.2.0",
     "react-parallax": "^0.4.3",
     "react-router": "^2.5.2",
+    "react-router-transition": "0.0.5",
     "webpack": "^1.12.9"
   }
 }

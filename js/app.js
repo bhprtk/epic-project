@@ -6,7 +6,7 @@ import LoginComponent from "./components/MainComponent/LoginComponent";
 import SignupComponent from "./components/MainComponent/SignupComponent";
 import FeedComponent from "./components/FeedComponent/FeedComponent";
 
-import { Router, Route, hashHistory } from 'react-router'
+import { Router, Route, browserHistory } from 'react-router'
 
 const App = () => (
   <MuiThemeProvider>
@@ -15,7 +15,7 @@ const App = () => (
 );
 
 ReactDOM.render(
-  <Router history={hashHistory}>
+  <Router history={browserHistory}>
     <Route path="/" component={App} />
       <Route path="/signup" component={SignupComponent}/>
       <Route path="/feed" component={FeedComponent}/>

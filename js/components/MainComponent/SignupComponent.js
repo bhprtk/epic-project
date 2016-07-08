@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, Router } from 'react-router';
 import API from '../../API';
 import UserStore from '../../stores/UserStore';
 import DisplayErrorComponent from './DisplayErrorComponent';
+import { browserHistory } from 'react-router';
 
 
 import {
@@ -32,20 +33,26 @@ export default class SignupComponent extends React.Component {
 		console.log('this.props in componentDidMount', this.props);
 	}
 
-
+	componentWillUnmount() {
+		UserStore.removeListener("newUser", this.getNewUser);
+	}
 
 	getNewUser() {
 		let _newUser = UserStore.getNewUser();
 		console.log('_newUser', _newUser);
 		if(_newUser.responseJSON) {
 			this.setState({error: _newUser.responseJSON.error});
+			setTimeout(() => {
+				this.setState({
+					error: null,
+				});
+			}, 3000);
 		}
-		setTimeout(() => {
-			this.setState({
-				error: null,
-			});
-		}, 3000);
-		
+		console.log('this.props ', this.props);
+		// this.props.routes.push({
+		// 	pathname: '/feed'
+		// })
+		browserHistory.push('/feed');
 	}
 
 	render() {
