@@ -17,7 +17,7 @@ export default class SplashComponent extends React.Component {
 
 						<div>
 							<p style={styles.titleDiv}>create or join a startup</p>
-							<h1>START ME UP</h1>
+							<h1><strong>START ME UP</strong></h1>
 
 							<Link to="/signup">
 								<button

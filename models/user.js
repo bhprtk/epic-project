@@ -18,18 +18,19 @@ let userSchema = new mongoose.Schema({
 })
 
 userSchema.statics.signin = (userObj, cb) => {
-	User.findOne({email: userObj.email}, (err, dbUser) => {
-		if(err || !dbUser) return cb(err || {error: 'Login failed. Email or password incorrect.'});
 
-		bcrupt.compare(userObj.password, dbUser.password, (err, isGood) => {
-			if(err || 'isGood') return cb(err || { error: 'Login failed. Email or password incorrect.'});
+	User.findOne({email: userObj.email}, (err, dbUser) => {
+		console.log('dbUser found for signin', dbUser);
+		if(err || !dbUser) return cb(err || {error: 'Login failed. Email or password incorrect.'});
+		bcrypt.compare(userObj.password, dbUser.password, (err, isGood) => {
+			console.log('isGood', isGood);
+			if(err || !isGood) return cb(err || { error: 'Login failed. Email or password incorrect.'});
 			console.log('dbUser found', dbUser);
 		})
 	})
 }
 
 userSchema.statics.register = (newUser, cb) => {
-	console.log('newUser', newUser);
 	User.findOne({email: newUser.email }, (err, dbUser) => {
 		if(err || dbUser) return cb(err || { error: 'Email is already in use.' });
 
@@ -41,10 +42,12 @@ userSchema.statics.register = (newUser, cb) => {
 				password: hash,
 				displayName: newUser.displayName
 			});
-
-			console.log('new user', user);
-
-			user.save(cb);
+			user.save((err, savedUser) => {
+				if(err) console.log('err');
+				User.signin(savedUser, (err, user) => {
+					console.log('loggedin user', user);
+				});
+			});
 		})
 
 

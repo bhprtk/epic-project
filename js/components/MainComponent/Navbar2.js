@@ -15,10 +15,9 @@ export default class Navbar2 extends React.Component {
 			  <div className="container">
 			    <div className="navbar-header">
 			      <Link to="/" className="navbar-brand">
-							{/*<a className="navbar-brand">*/}
-
-								StartMeUp.xyz
-							{/*</a>*/}
+							<strong>
+								StartMeUp
+							</strong>
 			      </Link>
 			    </div>
 

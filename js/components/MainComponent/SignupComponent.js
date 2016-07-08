@@ -17,7 +17,6 @@ export default class SignupComponent extends React.Component {
 
 		this.state = {
 			error: null,
-			// router: React.PropTypes.object
 		}
 
 		this.getNewUser = this.getNewUser.bind(this);
@@ -30,7 +29,6 @@ export default class SignupComponent extends React.Component {
 
 	componentDidMount() {
 		UserStore.on("newUser", this.getNewUser);
-		console.log('this.props in componentDidMount', this.props);
 	}
 
 	componentWillUnmount() {
@@ -40,7 +38,6 @@ export default class SignupComponent extends React.Component {
 
 	getNewUser() {
 		let _newUser = UserStore.getNewUser();
-		console.log('_newUser', _newUser);
 		if(_newUser.responseJSON) {
 			this.setState({error: _newUser.responseJSON.error});
 			setTimeout(() => {
@@ -48,19 +45,15 @@ export default class SignupComponent extends React.Component {
 					error: null,
 				});
 			}, 3000);
+		} else {
+			console.log('push');
+			hashHistory.push('/feed');
 		}
-		console.log('this.props ', this.props);
-		// this.props.routes.push({
-		// 	pathname: '/feed'
-		// })
-		// this.state.router.push('/feed');
-		hashHistory.push('/feed');
 	}
 
 	render() {
 		_state = this.state;
 		let errorDisplay;
-		console.log('router', Router);
 
 		if(this.state.error) {
 			errorDisplay = <DisplayErrorComponent error={this.state.error}/>;
@@ -72,51 +65,58 @@ export default class SignupComponent extends React.Component {
 					<h3>SIGN UP</h3>
 					<p>Create an account and you're ready to join or create all listed start ups</p>
 					{errorDisplay}
+					<div className="row">
+						<form
+							onSubmit={this.registerUser}
+							style={styles.form}
+							className="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+							<FormGroup>
+								<FormControl
+									required
+									type="text"
+									placeholder="Display name"
+									onChange={e => this.setState({displayName: e.target.value})} />
+							</FormGroup>
+							<FormGroup>
+								<FormControl
+									required
+									type="email"
+									placeholder="Email"
+									onChange={e => this.setState({email: e.target.value})}
+									/>
+							</FormGroup>
+							<FormGroup>
+								<FormControl
+									required
+									className
+									type="password"
+									placeholder="Password"
+									onChange={e => this.setState({password: e.target.value})} />
+							</FormGroup>
 
-					<form
-						onSubmit={this.registerUser}
-						style={styles.form}
-						className="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
-						<FormGroup>
-							<FormControl
-								required
-								type="text"
-								placeholder="Display name"
-								onChange={e => this.setState({displayName: e.target.value})} />
-						</FormGroup>
-						<FormGroup>
-							<FormControl
-								required
-								type="email"
-								placeholder="Email"
-								onChange={e => this.setState({email: e.target.value})}
-								 />
-						</FormGroup>
-						<FormGroup>
-							<FormControl
-								required
-								className
-								type="password"
-								placeholder="Password"
-								onChange={e => this.setState({password: e.target.value})} />
-						</FormGroup>
+							<Link to="/">
+								<button
+									type="button"
+									className="btn btn-default"
+									style={styles.buttons}>
+									Cancel
+								</button>
+							</Link>
 
-						<Link to="/">
 							<button
-								type="button"
+								type="submit"
 								className="btn btn-default"
 								style={styles.buttons}>
-								Cancel
+								Register
 							</button>
-						</Link>
+						</form>
 
-						<button
-							type="submit"
-							className="btn btn-default"
-							style={styles.buttons}>
-							Register
-						</button>
-					</form>
+					</div>
+
+					<div className="row" style={styles.login}>
+
+						<Link style={styles.link} to="/login">Already signed up? Click here to log in   >></Link>
+					</div>
 
 				</div>
 			</div>
@@ -132,11 +132,18 @@ const styles = {
 		color: '#fff',
 	},
 	form: {
-		paddingTop: '10vh',
+		paddingTop: 50,
 	},
 	buttons: {
 		color: '#885ead',
 		width: '40%',
 		margin: 10
+	},
+	login: {
+		marginTop: 50
+	},
+	link: {
+		color: '#fff',
+		
 	}
 }

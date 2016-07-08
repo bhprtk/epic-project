@@ -11,78 +11,15 @@ import {
 	Button,
 } from 'react-bootstrap';
 
-let _state;
 export default class LoginComponent extends React.Component {
 	constructor(props) {
 		super(props);
 
 	}
 
-	onSubmit(e) {
-		e.preventDefault();
-		// UserActions.userRegister(_state);
-		API.registerUser(_state);
-	}
 
 	render() {
-		_state = this.state;
-		return (
-			<MuiThemeProvider>
-			<div className="container text-center" style={container}>
-				<div className="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
-					<h2>Sign up</h2>
-					<hr/>
-
-					<Paper
-						style={style}
-						zDepth={5}
-						className="col-md-12 col-xs-12 col-sm-12"
-						>
-
-						<div className="col-md-6 col-xs-12 col-sm-12">
-
-							<form
-								onSubmit={this.onSubmit}>
-
-								<TextField
-									style={textFieldStyle}
-									floatingLabelText="Display Name"
-									onChange={e => this.setState({displayName: e.target.value})}
-									required
-									/><br />
-								<TextField
-									style={textFieldStyle}
-									type="email"
-									floatingLabelText="Email"
-									onChange={e => this.setState({email: e.target.value})}
-									required
-									/><br />
-								<TextField
-									style={textFieldStyle}
-									floatingLabelText="Password"
-									type="password"
-									onChange={e => this.setState({password: e.target.value})}
-									required
-									/><br />
-								<Button
-									type="submit"
-									bsStyle="primary"
-									bsSize="large"
-									style={signupBtn}
-									block>
-									Sign up
-								</Button>
-							</form>
-
-						</div>
-
-
-
-					</Paper>
-
-				</div>
-			</div>
-		</MuiThemeProvider>
+		
 		)
 	}
 }

@@ -19,6 +19,7 @@ ReactDOM.render(
   <Router history={hashHistory}>
     <Route path="/" component={MainComponent} />
       <Route path="signup" component={SignupComponent}/>
+      <Route path="login" component={LoginComponent}/>
       <Route path="feed" component={FeedComponent}>
         <Route path="profile" component={ProfileComponent}/>
       </Route>
