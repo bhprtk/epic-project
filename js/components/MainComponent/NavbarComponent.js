@@ -12,7 +12,7 @@ export default class NavbarComponent extends React.Component {
 			<Navbar inverse style={styles.navbar} className="navbar-fixed-top">
 		    <Navbar.Header>
 		      <Navbar.Brand>
-		        <a href="#">startmeup.xyz</a>
+		        <a href="#">StartMeUp.xyz</a>
 		      </Navbar.Brand>
 		    </Navbar.Header>
 		    <Nav className="navbar-right">

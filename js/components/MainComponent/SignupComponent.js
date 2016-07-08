@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link, Router } from 'react-router';
+import { Link, Router, browserHistory } from 'react-router';
 import API from '../../API';
 import UserStore from '../../stores/UserStore';
 import DisplayErrorComponent from './DisplayErrorComponent';
-import { browserHistory } from 'react-router';
 
 
 import {
@@ -18,6 +17,7 @@ export default class SignupComponent extends React.Component {
 
 		this.state = {
 			error: null,
+			// router: React.PropTypes.object
 		}
 
 		this.getNewUser = this.getNewUser.bind(this);
@@ -37,6 +37,7 @@ export default class SignupComponent extends React.Component {
 		UserStore.removeListener("newUser", this.getNewUser);
 	}
 
+
 	getNewUser() {
 		let _newUser = UserStore.getNewUser();
 		console.log('_newUser', _newUser);
@@ -52,12 +53,14 @@ export default class SignupComponent extends React.Component {
 		// this.props.routes.push({
 		// 	pathname: '/feed'
 		// })
+		// this.state.router.push('/feed');
 		browserHistory.push('/feed');
 	}
 
 	render() {
 		_state = this.state;
 		let errorDisplay;
+		console.log('router', Router);
 
 		if(this.state.error) {
 			errorDisplay = <DisplayErrorComponent error={this.state.error}/>;

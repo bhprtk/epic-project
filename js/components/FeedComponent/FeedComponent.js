@@ -1,9 +1,19 @@
 import React from 'react';
+import NavbarComponent from '../MainComponent/NavbarComponent';
+import Navbar2 from '../MainComponent/Navbar2';
 
 export default class FeedComponent extends React.Component {
+	constructor(props){
+		super(props);
+	}
+
 	render() {
 		return (
-			<h1>yup this is FeedComponent</h1>
+			<div>
+				<Navbar2 />
+				{this.props.children}
+
+			</div>
 		)
 	}
 }
