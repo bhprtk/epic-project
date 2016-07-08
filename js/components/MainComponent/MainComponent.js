@@ -8,9 +8,16 @@ import { Route, IndexRoute } from 'react-router';
 
 
 export default class MainComponent extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+
 	render() {
 		return (
+			<div>
 				<SplashComponent />
+
+			</div>
 		)
 	}
 }

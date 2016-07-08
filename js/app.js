@@ -11,17 +11,16 @@ import { Router, Route, browserHistory } from 'react-router'
 
 const App = () => (
   <MuiThemeProvider>
-    {/*<MainComponent />*/}
-    <FeedComponent />
+    <MainComponent />
   </MuiThemeProvider>
 );
 
 ReactDOM.render(
   <Router history={browserHistory}>
-    <Route path="/" component={FeedComponent} >
-      {/*<Route path="/signup" component={SignupComponent}/>*/}
-      {/*<Route path="/feed" component={FeedComponent} />*/}
+    <Route path="/" component={MainComponent} />
+      <Route path="signup" component={SignupComponent}/>
+      <Route path="feed" component={FeedComponent}>
         <Route path="profile" component={ProfileComponent}/>
-    </Route>
+      </Route>
   </Router>
   , document.getElementById('react'));

@@ -11,7 +11,7 @@ export default class Navbar2 extends React.Component {
 
 	render() {
 		return (
-			<div className="navbar">
+			<div className="navbar navbar-default" style={styles.container}>
 			  <div className="container">
 			    <div className="navbar-header">
 			      <Link to="/" className="navbar-brand">
@@ -40,7 +40,7 @@ export default class Navbar2 extends React.Component {
 							</a>
 						</li>
 						<li>
-							<Link to="/profile">
+							<Link to="/feed/profile" activeStyle={{color:'red'}}>
 								<strong>
 								Profile
 							</strong>
@@ -51,5 +51,11 @@ export default class Navbar2 extends React.Component {
 			  </div>
 			</div>
 		)
+	}
+}
+
+const styles = {
+	container: {
+		background: '#fff',
 	}
 }
