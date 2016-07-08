@@ -132,7 +132,7 @@ const styles = {
 		color: '#fff',
 	},
 	form: {
-		paddingTop: 50,
+		marginTop: 50,
 	},
 	buttons: {
 		color: '#885ead',
@@ -144,6 +144,6 @@ const styles = {
 	},
 	link: {
 		color: '#fff',
-		
+
 	}
 }

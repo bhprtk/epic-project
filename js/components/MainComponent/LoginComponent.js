@@ -19,35 +19,36 @@ export default class LoginComponent extends React.Component {
 
 
 	render() {
-		
+		return(
+			<div style={styles.container}>
+				<div className="container text-center">
+					<h3>LOG IN</h3>
+					<p>Log in with the email address you registered with and start joining new startups</p>
+					<form
+						className="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3"
+						style={styles.form}>
+						<div className="form-group">
+							<input type="email" className="form-control" placeholder="Email"/>
+						</div>
+						<div className="form-group">
+							<input type="password" className="form-control" placeholder="Password"/>
+						</div>
+
+					</form>
+				</div>
+			</div>
 		)
 	}
 }
 
-const container = {
-	// background: '#4E80B2',
-	height: "100vh",
-	width: "100%",
-}
-
-const style = {
-  margin: 20,
-  textAlign: 'center',
-  display: 'inline-block',
-	padding: 10,
-	marginTop: 50,
-	height: 500,
-	background: '#2A364A'
-};
-
-const input = {
-	margin: 20,
-}
-
-const textFieldStyle = {
-	width: '100%'
-}
-
-const signupBtn = {
-	marginTop: 20
+const styles = {
+	container: {
+		paddingTop: '20vh',
+		height: '100vh',
+		background: '#445D68',
+		color: '#fff',
+	},
+	form: {
+		marginTop: 50
+	}
 }
