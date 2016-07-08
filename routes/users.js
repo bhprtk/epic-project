@@ -13,11 +13,14 @@ router.get('/getAll', (req, res) => {
 })
 
 router.post('/register', (req, res) => {
-	console.log('req.body', req.body);
 	User.register(req.body, (err, newUser) => {
 		if(err) res.status(400).send(err);
-		res.send(newUser);
+		res.send();
 	});
+})
+
+router.post('/signin', (req, res) => {
+	console.log('req.body in signin', req.body);
 })
 
 export default router;

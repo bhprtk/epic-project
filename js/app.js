@@ -7,7 +7,7 @@ import SignupComponent from "./components/MainComponent/SignupComponent";
 import FeedComponent from "./components/FeedComponent/FeedComponent";
 import ProfileComponent from "./components/FeedComponent/ProfileComponent";
 import Navbar2 from "./components/MainComponent/Navbar2";
-import { Router, Route, browserHistory } from 'react-router'
+import { Router, Route, browserHistory, hashHistory } from 'react-router'
 
 const App = () => (
   <MuiThemeProvider>
@@ -16,7 +16,7 @@ const App = () => (
 );
 
 ReactDOM.render(
-  <Router history={browserHistory}>
+  <Router history={hashHistory}>
     <Route path="/" component={MainComponent} />
       <Route path="signup" component={SignupComponent}/>
       <Route path="feed" component={FeedComponent}>

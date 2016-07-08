@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Router, browserHistory } from 'react-router';
+import { Link, Router, browserHistory, hashHistory } from 'react-router';
 import API from '../../API';
 import UserStore from '../../stores/UserStore';
 import DisplayErrorComponent from './DisplayErrorComponent';
@@ -54,7 +54,7 @@ export default class SignupComponent extends React.Component {
 		// 	pathname: '/feed'
 		// })
 		// this.state.router.push('/feed');
-		browserHistory.push('/feed');
+		hashHistory.push('/feed');
 	}
 
 	render() {
