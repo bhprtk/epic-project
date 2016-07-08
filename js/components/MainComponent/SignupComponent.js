@@ -43,9 +43,9 @@ export default class SignupComponent extends React.Component {
 		setTimeout(() => {
 			this.setState({
 				error: null,
-				email: null
 			});
 		}, 3000);
+		
 	}
 
 	render() {
@@ -79,11 +79,13 @@ export default class SignupComponent extends React.Component {
 								required
 								type="email"
 								placeholder="Email"
-								onChange={e => this.setState({email: e.target.value})} />
+								onChange={e => this.setState({email: e.target.value})}
+								 />
 						</FormGroup>
 						<FormGroup>
 							<FormControl
 								required
+								className
 								type="password"
 								placeholder="Password"
 								onChange={e => this.setState({password: e.target.value})} />
