@@ -24,12 +24,13 @@ router.post('/signin', (req, res) => {
 	console.log('req.cookies before User.signin', req.cookies);
 
 // todo: make user signin only sign in one user
+// learn how to add emojis
 
 	User.signin(req.body, (err, token) => {
 		if(err) res.status(400).send(err);
 		console.log('token after signin', token);
 		// console.log('req.cookies in signin', req.cookies);
-		res.cookie('epicAccessToken', token).send(token);
+		res.cookie('epicAccessToken', token).send('Log in successful');
 	})
 })
 

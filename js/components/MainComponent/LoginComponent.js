@@ -7,6 +7,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { Link } from 'react-router';
 
 import API from '../../API';
+import UserStore from '../../stores/UserStore';
 
 import {
 	Button,
@@ -17,7 +18,12 @@ export default class LoginComponent extends React.Component {
 		super(props);
 
 		this.loginUser = this.loginUser.bind(this);
+		this.loginResponse = this.loginResponse.bind(this);
 
+	}
+
+	componentDidMount() {
+		UserStore.on("loginResponse", this.loginResponse);
 	}
 
 	loginUser(e) {
@@ -25,7 +31,11 @@ export default class LoginComponent extends React.Component {
 		API.loginUser(this.state);
 	}
 
-	
+	loginResponse() {
+		let _loginResponse = UserStore.getLoginResponse();
+		console.log('_loginResponse', _loginResponse);
+	}
+
 
 	render() {
 		return(

@@ -16,11 +16,10 @@ let API = {
 		console.log('log this user', user);
 		post('/users/signin', user)
 			.then(res => {
-				console.log('res after signin', res);
-				// UserActions.newLogin(res);
+				UserActions.newLogin(res);
 			})
 			.catch(err => {
-				console.log('err', err);
+				UserActions.newLogin(err);
 			})
 	}
 }
