@@ -20,7 +20,11 @@ router.post('/register', (req, res) => {
 })
 
 router.post('/signin', (req, res) => {
+	console.log('req.user in signin', req.user);
 	console.log('req.cookies before User.signin', req.cookies);
+
+// todo: make user signin only sign in one user
+
 	User.signin(req.body, (err, token) => {
 		if(err) res.status(400).send(err);
 		console.log('token after signin', token);

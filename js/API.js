@@ -16,6 +16,7 @@ let API = {
 		console.log('log this user', user);
 		post('/users/signin', user)
 			.then(res => {
+				console.log('res after signin', res);
 				// UserActions.newLogin(res);
 			})
 			.catch(err => {

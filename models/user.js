@@ -23,7 +23,6 @@ userSchema.statics.signin = (userObj, cb) => {
 		bcrypt.compare(userObj.password, dbUser.password, (err, isGood) => {
 			if(err || !isGood) return cb(err || { error: 'Login failed. Email or password incorrect.'});
 			let token = dbUser.makeToken();
-			console.log('token after makeToken', token);
 			cb(null, token);
 		})
 	})
