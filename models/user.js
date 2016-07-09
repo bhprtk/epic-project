@@ -18,14 +18,12 @@ let userSchema = new mongoose.Schema({
 })
 
 userSchema.statics.signin = (userObj, cb) => {
-	console.log('userObj in signin model', userObj);
-
 	User.findOne({email: userObj.email}, (err, dbUser) => {
-		console.log('dbUser found for signin', dbUser);
 		if(err || !dbUser) return cb(err || {error: 'Login failed. Email or password incorrect.'});
 		bcrypt.compare(userObj.password, dbUser.password, (err, isGood) => {
 			if(err || !isGood) return cb(err || { error: 'Login failed. Email or password incorrect.'});
 			let token = dbUser.makeToken();
+			console.log('token after makeToken', token);
 			cb(null, token);
 		})
 	})
@@ -52,22 +50,23 @@ userSchema.statics.register = (newUser, cb) => {
 
 userSchema.statics.isLoggedIn = (req, res, next) => {
 	console.log('req.cookise', req.cookies);
-	// let token = req.cookies.epicAccessToken;
-	// console.log('token', token);
-	// jwt.verify(token, JWT_SECRET, (err, payload) => {
-	// 	if(err) return res.status(401).send({error: 'Must be authenticated.'});
-	// 	User.findById(payload._id, (err, user) => {
-	// 		if(err || !user) {
-	// 			return res.clearCookie('epicAccessToken').status(400).send(err || {error: 'User not found.'});
-	// 		}
-	// 		req.user = user;
-	// 		next();
-	// 	}).select('-password');
-	// })
+	let token = req.cookies.epicAccessToken;
+	console.log('token', token);
+	jwt.verify(token, JWT_SECRET, (err, payload) => {
+		if(err) return res.status(401).send({error: 'Must be authenticated.'});
+		User.findById(payload._id, (err, user) => {
+			if(err || !user) {
+				return res.clearCookie('epicAccessToken').status(400).send(err || {error: 'User not found.'});
+			}
+			req.user = user;
+			next();
+		}).select('-password');
+	})
 }
 
 userSchema.methods.makeToken = function() {
 	let token = jwt.sign({_id: this._id}, JWT_SECRET);
+	console.log('token', token);
 	return token;
 }
 
