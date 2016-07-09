@@ -22,12 +22,13 @@ router.post('/register', (req, res) => {
 router.post('/signin', (req, res) => {
 	User.signin(req.body, (err, token) => {
 		if(err) res.status(400).send(err);
-		res.cookie('accessTokenCookie', token).send(token);
+		res.cookie('epicAccessToken', token).send(token);
 	})
 })
 
 router.delete('/logout', (req, res) => {
-	res.clearCookie('accessTokenCookie').send();
+	console.log('req.cookies', req.cookies);
+	res.clearCookie('epicAccessToken').send();
 })
 
 router.get('/currentUser', User.isLoggedIn, (req, res) => {
