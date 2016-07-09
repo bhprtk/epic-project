@@ -50,6 +50,13 @@ userSchema.statics.register = (newUser, cb) => {
 	})
 }
 
+suerSchema.statics.isLoggedIn = (req, res, next) => {
+	let token = req.cookies.accessTokenCookie;
+	jwt.verify(token, JWT_SECRET, (err, payload) => {
+		if(err) return res.status(401).send({error: 'Must be authenticated.'})
+	})
+}
+
 userSchema.methods.makeToken = function() {
 	let token = jwt.sign({_id: this._id}, JWT_SECRET);
 	return token;

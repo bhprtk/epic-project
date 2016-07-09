@@ -15,7 +15,7 @@ import {
 export default class LoginComponent extends React.Component {
 	constructor(props) {
 		super(props);
-		
+
 		this.loginUser = this.loginUser.bind(this);
 
 	}
@@ -24,6 +24,8 @@ export default class LoginComponent extends React.Component {
 		e.preventDefault();
 		API.loginUser(this.state);
 	}
+
+	
 
 	render() {
 		return(

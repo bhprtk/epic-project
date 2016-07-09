@@ -26,4 +26,12 @@ router.post('/signin', (req, res) => {
 	})
 })
 
+router.delete('/logout', (req, res) => {
+	res.clearCookie('accessTokenCookie').send();
+})
+
+router.get('/currentUser', User.isLoggedIn, (req, res) => {
+	console.log('req.user', req.user);
+})
+
 export default router;
