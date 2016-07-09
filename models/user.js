@@ -20,15 +20,15 @@ let userSchema = new mongoose.Schema({
 userSchema.statics.signin = (userObj, cb) => {
 	console.log('userObj in signin model', userObj);
 
-	// User.findOne({email: userObj.email}, (err, dbUser) => {
-	// 	console.log('dbUser found for signin', dbUser);
-	// 	if(err || !dbUser) return cb(err || {error: 'Login failed. Email or password incorrect.'});
-	// 	// bcrypt.compare(userObj.password, dbUser.password, (err, isGood) => {
-	// 	// 	console.log('isGood', isGood);
-	// 	// 	if(err || !isGood) return cb(err || { error: 'Login failed. Email or password incorrect.'});
-	// 	// 	console.log('dbUser found', dbUser);
-	// 	// })
-	// })
+	User.findOne({email: userObj.email}, (err, dbUser) => {
+		console.log('dbUser found for signin', dbUser);
+		if(err || !dbUser) return cb(err || {error: 'Login failed. Email or password incorrect.'});
+		bcrypt.compare(userObj.password, dbUser.password, (err, isGood) => {
+			if(err || !isGood) return cb(err || { error: 'Login failed. Email or password incorrect.'});
+			let token = dbUser.makeToken();
+			cb(null, token);
+		})
+	})
 }
 
 userSchema.statics.register = (newUser, cb) => {
@@ -43,16 +43,16 @@ userSchema.statics.register = (newUser, cb) => {
 				password: hash,
 				displayName: newUser.displayName
 			});
-			user.save((err, savedUser) => {
-				if(err) console.log('err');
-				User.signin(savedUser, (err, user) => {
-					console.log('loggedin user', user);
-				});
-			});
+			user.save(cb);
 		})
 
 
 	})
+}
+
+userSchema.methods.makeToken = function() {
+	let token = jwt.sign({_id: this._id}, JWT_SECRET);
+	return token;
 }
 
 let User = mongoose.model('User', userSchema);
