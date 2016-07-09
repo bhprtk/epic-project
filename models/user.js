@@ -48,9 +48,7 @@ userSchema.statics.register = (newUser, cb) => {
 }
 
 userSchema.statics.isLoggedIn = (req, res, next) => {
-	console.log('req.cookise', req.cookies);
 	let token = req.cookies.epicAccessToken;
-	console.log('token', token);
 	jwt.verify(token, JWT_SECRET, (err, payload) => {
 		if(err) return res.status(401).send({error: 'Must be authenticated.'});
 		User.findById(payload._id, (err, user) => {
