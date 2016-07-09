@@ -8,6 +8,7 @@ import { Link } from 'react-router';
 
 import API from '../../API';
 import UserStore from '../../stores/UserStore';
+import DisplayErrorComponent from './DisplayErrorComponent';
 
 import {
 	Button,
@@ -16,6 +17,10 @@ import {
 export default class LoginComponent extends React.Component {
 	constructor(props) {
 		super(props);
+
+		this.state = {
+			error: null,
+		}
 
 		this.loginUser = this.loginUser.bind(this);
 		this.loginResponse = this.loginResponse.bind(this);
@@ -33,16 +38,32 @@ export default class LoginComponent extends React.Component {
 
 	loginResponse() {
 		let _loginResponse = UserStore.getLoginResponse();
-		console.log('_loginResponse', _loginResponse);
+		if(_loginResponse.responseJSON) {
+			this.setState({error: _loginResponse.responseJSON.error});
+			setTimeout(() => {
+				this.setState({
+					error: null,
+				});
+			}, 3000);
+		} else {
+			console.log('link to feed');
+		}
 	}
 
 
 	render() {
+		let errorDisplay;
+
+		if(this.state.error) {
+			errorDisplay = <DisplayErrorComponent error={this.state.error}/>;
+		}
+
 		return(
 			<div style={styles.container}>
 				<div className="container text-center">
 					<h3>LOG IN</h3>
 					<p>Log in with the email address you registered with and start joining new startups</p>
+					{errorDisplay}
 					<form
 						className="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3"
 						style={styles.form}
