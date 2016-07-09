@@ -15,14 +15,14 @@ import {
 export default class LoginComponent extends React.Component {
 	constructor(props) {
 		super(props);
-
+		
 		this.loginUser = this.loginUser.bind(this);
 
 	}
 
 	loginUser(e) {
 		e.preventDefault();
-		console.log('this.state', this.state);
+		API.loginUser(this.state);
 	}
 
 	render() {

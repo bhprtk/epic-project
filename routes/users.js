@@ -20,7 +20,10 @@ router.post('/register', (req, res) => {
 })
 
 router.post('/signin', (req, res) => {
-	console.log('req.body in signin', req.body);
+	User.signin(req.body, (err, user) => {
+		if(err) res.status(400).send(err);
+		console.log('user loggedin', user);
+	})
 })
 
 export default router;

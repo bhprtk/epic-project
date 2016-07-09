@@ -18,16 +18,17 @@ let userSchema = new mongoose.Schema({
 })
 
 userSchema.statics.signin = (userObj, cb) => {
+	console.log('userObj in signin model', userObj);
 
-	User.findOne({email: userObj.email}, (err, dbUser) => {
-		console.log('dbUser found for signin', dbUser);
-		if(err || !dbUser) return cb(err || {error: 'Login failed. Email or password incorrect.'});
-		bcrypt.compare(userObj.password, dbUser.password, (err, isGood) => {
-			console.log('isGood', isGood);
-			if(err || !isGood) return cb(err || { error: 'Login failed. Email or password incorrect.'});
-			console.log('dbUser found', dbUser);
-		})
-	})
+	// User.findOne({email: userObj.email}, (err, dbUser) => {
+	// 	console.log('dbUser found for signin', dbUser);
+	// 	if(err || !dbUser) return cb(err || {error: 'Login failed. Email or password incorrect.'});
+	// 	// bcrypt.compare(userObj.password, dbUser.password, (err, isGood) => {
+	// 	// 	console.log('isGood', isGood);
+	// 	// 	if(err || !isGood) return cb(err || { error: 'Login failed. Email or password incorrect.'});
+	// 	// 	console.log('dbUser found', dbUser);
+	// 	// })
+	// })
 }
 
 userSchema.statics.register = (newUser, cb) => {
