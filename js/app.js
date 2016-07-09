@@ -5,7 +5,7 @@ import MainComponent from "./components/MainComponent/MainComponent";
 import LoginComponent from "./components/MainComponent/LoginComponent";
 import SignupComponent from "./components/MainComponent/SignupComponent";
 import FeedComponent from "./components/FeedComponent/FeedComponent";
-import ProfileComponent from "./components/FeedComponent/ProfileComponent";
+import ProfileComponent from "./components/ProfileComponent/ProfileComponent";
 import Navbar2 from "./components/MainComponent/Navbar2";
 import { Router, Route, browserHistory, hashHistory } from 'react-router'
 

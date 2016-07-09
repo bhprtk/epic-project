@@ -38,7 +38,7 @@ router.delete('/logout', (req, res) => {
 })
 
 router.get('/currentUser', User.isLoggedIn, (req, res) => {
-	console.log('req.user in currentUser', req.user);
+	res.send(req.user);
 })
 
 export default router;

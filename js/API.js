@@ -13,13 +13,22 @@ let API = {
 	},
 
 	loginUser(user) {
-		console.log('log this user', user);
 		post('/users/signin', user)
 			.then(res => {
 				UserActions.newLogin(res);
 			})
 			.catch(err => {
 				UserActions.newLogin(err);
+			})
+	},
+
+	getCurrentUser() {
+		get('/users/currentUser')
+			.then(res => {
+				UserActions.getCurrentUser(res);
+			})
+			.catch(err => {
+				console.log('err getCurrentUser', err);
 			})
 	}
 }

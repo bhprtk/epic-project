@@ -2,7 +2,7 @@ import AppDispatcher from '../AppDispatcher';
 import { ActionTypes } from '../Constants';
 import { EventEmitter } from 'events';
 
-let _newUser, _loginResponse;
+let _newUser, _loginResponse, _currentUser;
 class UserStore extends EventEmitter {
 	constructor(props) {
 		super(props);
@@ -17,6 +17,10 @@ class UserStore extends EventEmitter {
 					_loginResponse = action.res;
 					this.emit('loginResponse');
 					break;
+				case ActionTypes.CURRENT_USER:
+					_currentUser = action.user;
+					this.emit('getCurrentUser');
+					break;
 				default:
 			}
 		})
@@ -30,6 +34,9 @@ class UserStore extends EventEmitter {
 		return _loginResponse;
 	}
 
+	getCurrentUser() {
+		return _currentUser;
+	}
 
 
 

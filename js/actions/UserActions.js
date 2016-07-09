@@ -18,6 +18,13 @@ let UserActions = {
 			actionType: ActionTypes.NEW_LOGIN,
 			res
 		})
+	},
+
+	getCurrentUser(user) {
+		AppDispatcher.dispatch({
+			actionType: ActionTypes.CURRENT_USER,
+			user
+		})
 	}
 };
 
