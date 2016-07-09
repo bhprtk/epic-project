@@ -20,9 +20,9 @@ router.post('/register', (req, res) => {
 })
 
 router.post('/signin', (req, res) => {
-	User.signin(req.body, (err, user) => {
+	User.signin(req.body, (err, token) => {
 		if(err) res.status(400).send(err);
-		console.log('user loggedin', user);
+		res.cookie('accessTokenCookie', token).send(token);
 	})
 })
 
