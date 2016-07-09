@@ -46,7 +46,6 @@ export default class SignupComponent extends React.Component {
 				});
 			}, 3000);
 		} else {
-			console.log('push');
 			hashHistory.push('/feed');
 		}
 	}

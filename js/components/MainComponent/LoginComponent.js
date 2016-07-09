@@ -4,7 +4,7 @@ import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 import UserActions from '../../actions/UserActions';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 
 import API from '../../API';
 import UserStore from '../../stores/UserStore';
@@ -46,7 +46,7 @@ export default class LoginComponent extends React.Component {
 				});
 			}, 3000);
 		} else {
-			console.log('link to feed');
+			hashHistory.push('/feed');
 		}
 	}
 
