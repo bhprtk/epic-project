@@ -29,9 +29,9 @@ export default class ProfileComponent extends React.Component {
 		console.log('componentDidMount');
 	}
 
-	componentWillUnmount() {
-		// UserStore.removeListener("getCurrentUser", this.getCurrentUser);
-	}
+	// componentWillUnmount() {
+	// 	// UserStore.removeListener("getCurrentUser", this.getCurrentUser);
+	// }
 
 	getCurrentUser() {
 		// this.setState({
