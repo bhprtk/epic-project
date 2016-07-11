@@ -12,16 +12,16 @@ export default class FeedComponent extends React.Component {
 	}
 
 	componentWillMount() {
-		API.getCurrentUser();
+		// API.getCurrentUser();
 	}
 
 	componentDidMount() {
-		UserStore.on("getCurrentUser", this.getCurrentUser);
+		// UserStore.on("getCurrentUser", this.getCurrentUser);
 	}
 
 	getCurrentUser() {
-		let _currentUser = UserStore.getCurrentUser();
-		console.log('_currentUser', _currentUser);
+		// let _currentUser = UserStore.getCurrentUser();
+		// console.log('_currentUser', _currentUser);
 	}
 
 	render() {
