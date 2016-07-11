@@ -9,14 +9,17 @@ export default class ProfileComponent extends React.Component {
 
 	constructor(props) {
 		super(props);
-		// API.getCurrentUser();
 		this.state = {
 			currentUser: null
 		}
-		this.getCurrentUser = this.getCurrentUser.bind(this);
 	}
 
 	componentWillMount() {
+		console.log('componentWillMount');
+
+	}
+
+	componentDidMount() {
 		API.getCurrentUser();
 		UserStore.on("getCurrentUser", () => {
 			this.setState({
@@ -25,13 +28,10 @@ export default class ProfileComponent extends React.Component {
 		});
 	}
 
-	componentDidMount() {
-		console.log('componentDidMount');
-	}
-
 
 
 	render() {
+		let _coverComponent;
 		if(this.state.currentUser) {
 			_coverComponent = <CoverComponent currentUser={this.state.currentUser}/>
 		}
