@@ -25,8 +25,6 @@ export default class CoverComponent extends React.Component {
 						className="img-circle"
 						/>
 					<h2>{_currentUser.displayName}</h2>
-					<h4>mini resume</h4>
-					<p>location and stuff</p>
 				</div>
 			</div>
 		)

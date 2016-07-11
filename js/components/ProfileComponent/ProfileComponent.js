@@ -3,6 +3,7 @@ import React from 'react';
 import CoverComponent from './CoverComponent';
 import UserStore from '../../stores/UserStore';
 import API from '../../API';
+import EditButtonsComponent from './EditButtonsComponent';
 
 let _currentUser;
 export default class ProfileComponent extends React.Component {
@@ -23,9 +24,9 @@ export default class ProfileComponent extends React.Component {
 		API.getCurrentUser();
 		UserStore.on("getCurrentUser", () => {
 			console.log('this', this);
-			// this.setState({
-			// 	currentUser: UserStore.getCurrentUser()
-			// });
+			this.setState({
+				currentUser: UserStore.getCurrentUser()
+			});
 		});
 	}
 
@@ -38,7 +39,7 @@ export default class ProfileComponent extends React.Component {
 		}
 		return (
 			<div>
-				<h3>edit buttons</h3>
+				<EditButtonsComponent />
 				{_coverComponent}
 			</div>
 		)
