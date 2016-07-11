@@ -21,7 +21,7 @@ ReactDOM.render(
       <Route path="signup" component={SignupComponent}/>
       <Route path="login" component={LoginComponent}/>
       <Route path="feed" component={FeedComponent}>
-        <Route path="profile" component={ProfileComponent}/>
+        <Route path="profile" component={ProfileComponent} />
       </Route>
   </Router>
   , document.getElementById('react'));

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import CoverComponent from './CoverComponent';
+import EditCoverButtonsComponent from './EditCoverButtonsComponent';
 import UserStore from '../../stores/UserStore';
 import API from '../../API';
 
@@ -32,13 +33,13 @@ export default class ProfileComponent extends React.Component {
 
 
 	render() {
-		let _coverComponent;
+		let _editCoverButtons;
 		if(this.state.currentUser) {
-			_coverComponent = <CoverComponent currentUser={this.state.currentUser}/>
+			_editCoverButtons = <EditCoverButtonsComponent currentUser={this.state.currentUser}/>
 		}
 		return (
 			<div>
-				{_coverComponent}
+				{_editCoverButtons}
 			</div>
 		)
 	}

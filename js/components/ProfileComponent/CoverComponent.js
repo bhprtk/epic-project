@@ -2,6 +2,7 @@ import React from 'react';
 
 import API from '../../API';
 import UserStore from '../../stores/UserStore';
+import EditCoverComponent from './EditCoverComponent';
 
 
 let _currentUser;
@@ -11,27 +12,23 @@ export default class CoverComponent extends React.Component {
 	constructor(props) {
 		super(props);
 
+		this.state = {
+			editProfile: false
+		}
+
 		this.editProfile = this.editProfile.bind(this);
 	}
 
 	editProfile() {
-		console.log('lol');
+		this.setState({
+			editProfile: true
+		})
 	}
 
 	render() {
-
 		_currentUser = this.props.currentUser;
+
 		return (
-			<div>
-				<div
-					className="container">
-					<button
-						className="btn btn-default"
-						style={styles.editBtn}
-						onClick={this.editProfile}>
-						Edit Profile
-					</button>
-				</div>
 				<div
 					style={styles.container}>
 					<div className="container text-center">
@@ -44,7 +41,6 @@ export default class CoverComponent extends React.Component {
 					</div>
 				</div>
 
-			</div>
 		)
 	}
 }
