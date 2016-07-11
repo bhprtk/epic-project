@@ -4,32 +4,54 @@ import CoverComponent from './CoverComponent';
 import UserStore from '../../stores/UserStore';
 import API from '../../API';
 
+let _currentUser;
 export default class ProfileComponent extends React.Component {
+
 	constructor(props) {
 		super(props);
-
+		// API.getCurrentUser();
+		this.state = {
+			currentUser: null
+		}
 		this.getCurrentUser = this.getCurrentUser.bind(this);
 	}
 
 	componentWillMount() {
 		API.getCurrentUser();
+		UserStore.on("getCurrentUser", () => {
+			this.setState({
+				currentUser: UserStore.getCurrentUser()
+			});
+		});
 	}
 
 	componentDidMount() {
-		UserStore.on("getCurrentUser", this.getCurrentUser);
+		console.log('componentDidMount');
+	}
+
+	componentWillUnmount() {
+		// UserStore.removeListener("getCurrentUser", this.getCurrentUser);
 	}
 
 	getCurrentUser() {
-		this.setState({
-			currentUser: UserStore.getCurrentUser()
-		});
-		console.log('this.state in getCurrentUser', this.state);
+		// this.setState({
+		// 	currentUser: UserStore.getCurrentUser()
+		// });
+		// console.log('this.state in getCurrentUser', this.state);
+	 	_currentUser = UserStore.getCurrentUser();
 	}
 
+
+
 	render() {
-		console.log('this.state', this.state);
+		let _coverComponent;
+		if(this.state.currentUser) {
+			_coverComponent = <CoverComponent currentUser={this.state.currentUser}/>
+		}
 		return (
-			<CoverComponent currentUser={this.state.currentUser}/>
+			<div>
+				{_coverComponent}
+			</div>
 		)
 	}
 }
