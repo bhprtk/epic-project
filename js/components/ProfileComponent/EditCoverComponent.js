@@ -7,7 +7,28 @@ export default class EditCoverComponent extends React.Component {
 
 	render() {
 		return(
-			<h1>editProfile</h1>
+			<div className="container">
+				<hr/>
+				<div className="col-md-6">
+					<form className="form-horizontal">
+						<div className="form-group">
+							<label className="col-sm-2 control-label">Display name</label>
+							<div className="col-sm-10">
+								<input type="text" className="form-control" />
+							</div>
+						</div>
+						
+						<div className="form-group">
+							<label className="col-sm-2 control-label">Display name</label>
+							<div className="col-sm-10">
+								<input type="text" className="form-control" />
+							</div>
+						</div>
+					</form>
+
+				</div>
+
+			</div>
 		)
 	}
 }
