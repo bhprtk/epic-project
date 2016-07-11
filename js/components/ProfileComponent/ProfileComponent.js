@@ -29,22 +29,9 @@ export default class ProfileComponent extends React.Component {
 		console.log('componentDidMount');
 	}
 
-	// componentWillUnmount() {
-	// 	// UserStore.removeListener("getCurrentUser", this.getCurrentUser);
-	// }
-
-	getCurrentUser() {
-		// this.setState({
-		// 	currentUser: UserStore.getCurrentUser()
-		// });
-		// console.log('this.state in getCurrentUser', this.state);
-	 	_currentUser = UserStore.getCurrentUser();
-	}
-
 
 
 	render() {
-		let _coverComponent;
 		if(this.state.currentUser) {
 			_coverComponent = <CoverComponent currentUser={this.state.currentUser}/>
 		}

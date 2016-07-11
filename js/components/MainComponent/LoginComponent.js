@@ -31,9 +31,6 @@ export default class LoginComponent extends React.Component {
 		UserStore.on("loginResponse", this.loginResponse);
 	}
 
-	componentWillUnmount() {
-		UserStore.removeListener("getCurrentUser", this.getCurrentUser);
-	}
 
 	loginUser(e) {
 		e.preventDefault();
