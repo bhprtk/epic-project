@@ -15,7 +15,7 @@ export default class ProfileComponent extends React.Component {
 	}
 
 	componentWillMount() {
-		console.log('componentWillMount');
+		console.log('this in componentWillMount', this);
 
 	}
 
