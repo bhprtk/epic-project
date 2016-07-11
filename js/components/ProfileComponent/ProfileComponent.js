@@ -22,9 +22,10 @@ export default class ProfileComponent extends React.Component {
 	componentDidMount() {
 		API.getCurrentUser();
 		UserStore.on("getCurrentUser", () => {
-			this.setState({
-				currentUser: UserStore.getCurrentUser()
-			});
+			console.log('this', this);
+			// this.setState({
+			// 	currentUser: UserStore.getCurrentUser()
+			// });
 		});
 	}
 
