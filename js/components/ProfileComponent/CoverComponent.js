@@ -24,7 +24,8 @@ export default class CoverComponent extends React.Component {
 						style={styles.profilePic}
 						className="img-circle"
 						/>
-					<h1>{_currentUser.displayName}</h1>
+					<h3>{_currentUser.displayName}</h3>
+					<p>mini resume</p>
 				</div>
 			</div>
 		)
@@ -33,8 +34,8 @@ export default class CoverComponent extends React.Component {
 
 const styles = {
 	container: {
-		height: "30vh",
-		marginTop: "10vh",
+		top: 0,
+		// height: "30vh",
 		background: '#222',
 		color: '#fff'
 	},

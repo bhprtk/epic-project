@@ -50,6 +50,7 @@ export default class ProfileComponent extends React.Component {
 		}
 		return (
 			<div>
+				<h3>edit buttons</h3>
 				{_coverComponent}
 			</div>
 		)
