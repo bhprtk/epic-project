@@ -11,31 +11,45 @@ export default class EditCoverButtonsComponent extends React.Component {
 			editProfile: false
 		}
 
-		this.editCover = this.editCover.bind(this);
 	}
 
-	editCover() {
-		this.setState({
-			editCover: true
-		})
-	}
 
 	render() {
 		let _display = <CoverComponent currentUser={this.props.currentUser}/>;
+		let _buttons = <div
+										className="container">
+										<button
+											className="btn btn-default"
+											style={styles.editCover}
+											onClick={() => {this.setState({editCover: true})}}>
+											Edit Profile
+										</button>
+
+									</div>;
 		if(this.state.editCover) {
 			_display = <EditCoverComponent />;
+			_buttons = <div
+									className="container">
+									<button
+										className="btn btn-default"
+										style={styles.editBtn}
+										onClick={() => {this.setState({editCover: false})}}>
+										Cancel
+									</button>
+									<button
+										className="btn btn-default"
+										style={styles.editBtn}
+										onClick={this.editCover}>
+										Save
+									</button>
+
+								</div>
 		}
 
 		return (
-			<div
-				className="container">
-				<button
-					className="btn btn-default"
-					style={styles.editBtn}
-					onClick={this.editCover}>
-					Edit Profile
-				</button>
+			<div>
 
+				{_buttons}
 				{_display}
 			</div>
 		)
@@ -43,8 +57,12 @@ export default class EditCoverButtonsComponent extends React.Component {
 }
 
 const styles = {
-	editBtn: {
+	editCover: {
 		marginBottom: 10,
 		marginTop: -10
+	},
+	editBtn: {
+		marginRight: 10,
+		width: 75
 	}
 }
