@@ -11,19 +11,35 @@ export default class EditCoverComponent extends React.Component {
 				<hr/>
 				<div className="col-md-6">
 					<form className="form-horizontal">
+
 						<div className="form-group">
-							<label className="col-sm-2 control-label">Display name</label>
-							<div className="col-sm-10">
+							<label className="col-sm-3 control-label">Display name</label>
+							<div className="col-sm-9">
 								<input type="text" className="form-control" />
 							</div>
 						</div>
-						
+
 						<div className="form-group">
-							<label className="col-sm-2 control-label">Display name</label>
-							<div className="col-sm-10">
+							<label className="col-sm-3 control-label">Profile picture</label>
+							<div className="col-sm-9">
 								<input type="text" className="form-control" />
 							</div>
 						</div>
+
+						<div className="form-group">
+							<label className="col-sm-3 control-label">Mini resume</label>
+							<div className="col-sm-9">
+								<textarea type="text" className="form-control" />
+							</div>
+						</div>
+
+						<div className="form-group">
+							<label className="col-sm-3 control-label">Location</label>
+							<div className="col-sm-9">
+								<input type="text" className="form-control" />
+							</div>
+						</div>
+
 					</form>
 
 				</div>
