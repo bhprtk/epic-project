@@ -7,12 +7,19 @@ export default class EditCoverComponent extends React.Component {
 
 		this.state = this.props;
 
+		this.saveEdit = this.saveEdit.bind(this);
 	}
 
 	componentDidMount() {
-		SaveEditStore.on("saveEdit", () => {
-			console.log('hello');
-		})
+		SaveEditStore.on("saveEdit", this.saveEdit);
+	}
+
+	componentWillUnmount() {
+		SaveEditStore.removeListener("saveEdit", this.saveEdit);
+	}
+
+	saveEdit() {
+		console.log('hello');
 	}
 
 	render() {
