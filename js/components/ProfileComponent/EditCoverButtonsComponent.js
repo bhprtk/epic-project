@@ -17,6 +17,9 @@ export default class EditCoverButtonsComponent extends React.Component {
 
 	saveEdit() {
 		EditActions.saveEdit();
+		this.setState({
+			editCover: false
+		})
 	}
 
 	render() {

@@ -10,7 +10,8 @@ let EditActions = {
 
 	updateUser(user) {
 		console.log('user', user);
-	}
+	},
+
 };
 
 export default EditActions;

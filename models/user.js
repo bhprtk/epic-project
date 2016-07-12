@@ -28,7 +28,6 @@ let userSchema = new mongoose.Schema({
 userSchema.statics.updateUser = (userId, newData, cb) => {
 	User.findById(userId, (err, dbUser) => {
 		for(let key in newData) {
-			console.log('typeof key', typeof key);
 			dbUser[key] = newData[key];
 		}
 		dbUser.save(cb);

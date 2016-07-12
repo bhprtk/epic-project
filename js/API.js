@@ -1,5 +1,6 @@
 import {get, post, ajax, put} from 'jquery';
 import UserActions from './actions/UserActions';
+import EditActions from './actions/EditActions';
 
 let API = {
 	registerUser(user) {
@@ -33,19 +34,18 @@ let API = {
 	},
 
 	updateUser(user) {
-		console.log('user', user);
-		console.log('JSON.stringify(user)', JSON.stringify(user));
 		ajax({
 			url: '/users/updateUser',
 			type: 'PUT',
 			data: user
 		})
 			.then(res => {
+				console.log('res is back', res);
 				API.getCurrentUser();
 				// UserActions.updatedUser(res);
 			})
 			.catch(err => {
-				console.log('err', err);
+				// console.log('err', err);
 			})
 	}
 }

@@ -56,11 +56,7 @@ export default class EditCoverComponent extends React.Component {
 									type="text"
 									className="form-control"
 									placeholder={this.state.currentUser.picture}
-									onChange={e => this.setState({
-										currentUser: {
-											picture: e.target.value
-										}
-									})}/>
+									onChange={e => this.setState({picture: e.target.value})}/>
 							</div>
 						</div>
 
