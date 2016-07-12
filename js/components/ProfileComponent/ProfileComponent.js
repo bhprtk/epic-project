@@ -15,15 +15,9 @@ export default class ProfileComponent extends React.Component {
 		}
 	}
 
-	componentWillMount() {
-		console.log('this in componentWillMount', this);
-
-	}
-
 	componentDidMount() {
 		API.getCurrentUser();
 		UserStore.on("getCurrentUser", () => {
-			console.log('this', this);
 			this.setState({
 				currentUser: UserStore.getCurrentUser()
 			});

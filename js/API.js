@@ -30,6 +30,10 @@ let API = {
 			.catch(err => {
 				console.log('err getCurrentUser', err);
 			})
+	},
+
+	updateUser(user) {
+		console.log('user', user);
 	}
 }
 

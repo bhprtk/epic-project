@@ -14,7 +14,17 @@ const JWT_SECRET = process.env.JWT_SECRET;
 let userSchema = new mongoose.Schema({
 	email: { type: String, unique: true, required: true },
 	password: String,
-	displayName: String
+	displayName: String,
+	picture: String,
+	miniResume: String,
+	location: String,
+	links: {
+		angelList: String,
+		linkedIn: String,
+		twitter: String,
+		facebook: String,
+		github: String,
+	}
 })
 
 userSchema.statics.signin = (userObj, cb) => {

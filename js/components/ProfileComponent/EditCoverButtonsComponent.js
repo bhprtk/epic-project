@@ -16,7 +16,6 @@ export default class EditCoverButtonsComponent extends React.Component {
 	}
 
 	saveEdit() {
-		console.log('1. EditCoverButtonsComponent');
 		EditActions.saveEdit();
 	}
 
@@ -39,7 +38,9 @@ export default class EditCoverButtonsComponent extends React.Component {
 									<button
 										className="btn btn-default"
 										style={styles.editBtn}
-										onClick={() => {this.setState({editCover: false})}}>
+										onClick={() => {
+											this.setState({editCover: false});
+										}}>
 										Cancel
 									</button>
 									<button
