@@ -25,6 +25,14 @@ let UserActions = {
 			actionType: ActionTypes.CURRENT_USER,
 			user
 		})
+	},
+
+	updatedUser(user) {
+		console.log('updateUser', user);
+		AppDispatcher.dispatch({
+			actionType: ActionTypes.UPDATED_USER,
+			user
+		})
 	}
 };
 

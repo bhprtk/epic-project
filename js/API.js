@@ -38,11 +38,11 @@ let API = {
 		ajax({
 			url: '/users/updateUser',
 			type: 'PUT',
-			// contentType: 'application/json',
 			data: user
 		})
 			.then(res => {
-				console.log('res', res);
+				API.getCurrentUser();
+				// UserActions.updatedUser(res);
 			})
 			.catch(err => {
 				console.log('err', err);

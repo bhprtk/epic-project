@@ -9,7 +9,6 @@ export default class EditCoverComponent extends React.Component {
 
 		this.state = {
 			currentUser: this.props.currentUser,
-			links: {}
 		};
 
 		this.saveEdit = this.saveEdit.bind(this);
@@ -32,6 +31,7 @@ export default class EditCoverComponent extends React.Component {
 	}
 
 	render() {
+		console.log('this.state', this.state);
 		return(
 			<div className="container">
 				<hr/>
@@ -67,14 +67,14 @@ export default class EditCoverComponent extends React.Component {
 						<div className="form-group">
 							<p className="col-sm-4 control-label">Mini resume</p>
 							<div className="col-sm-8">
-								<textarea type="text" className="form-control" placeholder={this.props.currentUser.picture} onChange={e => this.setState({miniResume: e.target.value})}/>
+								<textarea type="text" className="form-control" placeholder={this.state.currentUser.miniResume} onChange={e => this.setState({miniResume: e.target.value})}/>
 							</div>
 						</div>
 
 						<div className="form-group">
 							<p className="col-sm-4 control-label">Location</p>
 							<div className="col-sm-8">
-								<input type="text" className="form-control" placeholder={this.props.currentUser.picture} onChange={e => this.setState({location: e.target.value})} />
+								<input type="text" className="form-control" placeholder={this.state.currentUser.location} onChange={e => this.setState({location: e.target.value})} />
 							</div>
 						</div>
 
@@ -92,7 +92,7 @@ export default class EditCoverComponent extends React.Component {
 								<input
 									type="text"
 									className="form-control"
-									placeholder={this.props.currentUser.picture}
+									placeholder={this.state.currentUser.angelListLink}
 									onChange={e => this.setState({angelListLink: e.target.value})} />
 							</div>
 						</div>
@@ -100,7 +100,7 @@ export default class EditCoverComponent extends React.Component {
 						<div className="form-group">
 							<p className="col-sm-4 control-label">LinkedIn</p>
 							<div className="col-sm-8">
-								<input type="text" className="form-control" placeholder={this.props.currentUser.picture} onChange={e => this.setState({linkedInLink: e.target.value})} />
+								<input type="text" className="form-control" placeholder={this.state.currentUser.linkedInLink} onChange={e => this.setState({linkedInLink: e.target.value})} />
 							</div>
 						</div>
 
@@ -108,21 +108,21 @@ export default class EditCoverComponent extends React.Component {
 						<div className="form-group">
 							<p className="col-sm-4 control-label">Twitter</p>
 							<div className="col-sm-8">
-								<input type="text" className="form-control" placeholder={this.props.currentUser.picture} onChange={e => this.setState({twitterLink: e.target.value})} />
+								<input type="text" className="form-control" placeholder={this.state.currentUser.twitterLink} onChange={e => this.setState({twitterLink: e.target.value})} />
 							</div>
 						</div>
 
 						<div className="form-group">
 							<p className="col-sm-4 control-label">Facebook</p>
 							<div className="col-sm-8">
-								<input type="text" className="form-control" placeholder={this.props.currentUser.picture} onChange={e => this.setState({facebookLink: e.target.value})} />
+								<input type="text" className="form-control" placeholder={this.state.currentUser.facebookLink} onChange={e => this.setState({facebookLink: e.target.value})} />
 							</div>
 						</div>
 
 						<div className="form-group">
 							<p className="col-sm-4 control-label">Github</p>
 							<div className="col-sm-8">
-								<input type="text" className="form-control" placeholder={this.props.currentUser.picture} onChange={e => this.setState({githubLink: e.target.value})} />
+								<input type="text" className="form-control" placeholder={this.state.currentUser.githubLink} onChange={e => this.setState({githubLink: e.target.value})} />
 							</div>
 						</div>
 
