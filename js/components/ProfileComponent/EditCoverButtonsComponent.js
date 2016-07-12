@@ -27,7 +27,7 @@ export default class EditCoverButtonsComponent extends React.Component {
 
 									</div>;
 		if(this.state.editCover) {
-			_display = <EditCoverComponent />;
+			_display = <EditCoverComponent currentUser={this.props.currentUser}/>;
 			_buttons = <div
 									className="container">
 									<button

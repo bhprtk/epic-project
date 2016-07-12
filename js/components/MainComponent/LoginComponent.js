@@ -4,7 +4,7 @@ import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
 import UserActions from '../../actions/UserActions';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import { Link, hashHistory } from 'react-router';
+import { Link, hashHistory, browserHistory } from 'react-router';
 
 import API from '../../API';
 import UserStore from '../../stores/UserStore';
