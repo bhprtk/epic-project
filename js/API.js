@@ -1,4 +1,4 @@
-import {get, post, ajax} from 'jquery';
+import {get, post, ajax, put} from 'jquery';
 import UserActions from './actions/UserActions';
 
 let API = {
@@ -33,7 +33,17 @@ let API = {
 	},
 
 	updateUser(user) {
-		console.log('user', user);
+		ajax({
+			url: '/users/updateUser',
+			type: 'PUT',
+			data: user
+		})
+			.then(res => {
+				console.log('res', res);
+			})
+			.catch(err => {
+				console.log('err', err);
+			})
 	}
 }
 

@@ -15,7 +15,6 @@ export default class EditCoverComponent extends React.Component {
 	}
 
 	componentDidMount() {
-		console.log('EditCoverComponent mounted');
 		SaveEditStore.on("saveEdit", this.saveEdit);
 	}
 
@@ -26,8 +25,8 @@ export default class EditCoverComponent extends React.Component {
 
 	saveEdit() {
 		let _updatedUser = this.state;
-		console.log('_updatedUser', _updatedUser);
-		// API.updateUser(this.state);
+		delete _updatedUser.currentUser;
+		API.updateUser(_updatedUser);
 	}
 
 	render() {
@@ -40,7 +39,7 @@ export default class EditCoverComponent extends React.Component {
 						<div className="form-group">
 							<p className="col-sm-4 control-label">Display name</p>
 							<div className="col-sm-8">
-								<input type="text" className="form-control" placeholder={this.state.currentUser.displayName} onChange={e => this.setState({newDisplayName: e.target.value})}/>
+								<input type="text" className="form-control" placeholder={this.state.currentUser.displayName} onChange={e => this.setState({displayName: e.target.value})}/>
 							</div>
 						</div>
 
@@ -62,14 +61,14 @@ export default class EditCoverComponent extends React.Component {
 						<div className="form-group">
 							<p className="col-sm-4 control-label">Mini resume</p>
 							<div className="col-sm-8">
-								<textarea type="text" className="form-control" placeholder={this.props.currentUser.picture} onChange={e => this.setState({newMiniResume: e.target.value})}/>
+								<textarea type="text" className="form-control" placeholder={this.props.currentUser.picture} onChange={e => this.setState({miniResume: e.target.value})}/>
 							</div>
 						</div>
 
 						<div className="form-group">
 							<p className="col-sm-4 control-label">Location</p>
 							<div className="col-sm-8">
-								<input type="text" className="form-control" placeholder={this.props.currentUser.picture} onChange={e => this.setState({newLocation: e.target.value})} />
+								<input type="text" className="form-control" placeholder={this.props.currentUser.picture} onChange={e => this.setState({location: e.target.value})} />
 							</div>
 						</div>
 
@@ -84,14 +83,14 @@ export default class EditCoverComponent extends React.Component {
 						<div className="form-group">
 							<p className="col-sm-4 control-label">AngelList</p>
 							<div className="col-sm-8">
-								<input type="text" className="form-control" placeholder={this.props.currentUser.picture} onChange={e => this.setState({newAngelList: e.target.value})} />
+								<input type="text" className="form-control" placeholder={this.props.currentUser.picture} onChange={e => this.setState({angelList: e.target.value})} />
 							</div>
 						</div>
 
 						<div className="form-group">
 							<p className="col-sm-4 control-label">LinkedIn</p>
 							<div className="col-sm-8">
-								<input type="text" className="form-control" placeholder={this.props.currentUser.picture} onChange={e => this.setState({newLinkedIn: e.target.value})} />
+								<input type="text" className="form-control" placeholder={this.props.currentUser.picture} onChange={e => this.setState({linkedIn: e.target.value})} />
 							</div>
 						</div>
 
@@ -99,21 +98,21 @@ export default class EditCoverComponent extends React.Component {
 						<div className="form-group">
 							<p className="col-sm-4 control-label">Twitter</p>
 							<div className="col-sm-8">
-								<input type="text" className="form-control" placeholder={this.props.currentUser.picture} onChange={e => this.setState({newTwitter: e.target.value})} />
+								<input type="text" className="form-control" placeholder={this.props.currentUser.picture} onChange={e => this.setState({twitter: e.target.value})} />
 							</div>
 						</div>
 
 						<div className="form-group">
 							<p className="col-sm-4 control-label">Facebook</p>
 							<div className="col-sm-8">
-								<input type="text" className="form-control" placeholder={this.props.currentUser.picture} onChange={e => this.setState({newFacebook: e.target.value})} />
+								<input type="text" className="form-control" placeholder={this.props.currentUser.picture} onChange={e => this.setState({facebook: e.target.value})} />
 							</div>
 						</div>
 
 						<div className="form-group">
 							<p className="col-sm-4 control-label">Github</p>
 							<div className="col-sm-8">
-								<input type="text" className="form-control" placeholder={this.props.currentUser.picture} onChange={e => this.setState({newGithub: e.target.value})} />
+								<input type="text" className="form-control" placeholder={this.props.currentUser.picture} onChange={e => this.setState({github: e.target.value})} />
 							</div>
 						</div>
 

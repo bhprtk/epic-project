@@ -27,6 +27,11 @@ let userSchema = new mongoose.Schema({
 	}
 })
 
+userSchema.statics.updateUser = (userId, newData, cb) => {
+	console.log('userId', userId);
+	console.log('newData', newData);
+}
+
 userSchema.statics.signin = (userObj, cb) => {
 	User.findOne({email: userObj.email}, (err, dbUser) => {
 		if(err || !dbUser) return cb(err || {error: 'Login failed. Email or password incorrect.'});

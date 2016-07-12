@@ -6,7 +6,6 @@ let EditActions = {
 		AppDispatcher.dispatch({
 			actionType: ActionTypes.SAVE_EDIT
 		});
-		console.log('aigth');
 	},
 
 	updateUser(user) {
