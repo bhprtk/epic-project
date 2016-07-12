@@ -1,5 +1,5 @@
 import React from 'react';
-import Geosuggest from 'react-geosuggest';
+import SaveEditStore from '../../stores/SaveEditStore';
 
 export default class EditCoverComponent extends React.Component {
 	constructor(props) {
@@ -7,6 +7,12 @@ export default class EditCoverComponent extends React.Component {
 
 	}
 
+	componentDidMount() {
+		SaveEditStore.on("saveEdit", () => {
+			console.log('this.state in editCover', this.state);
+			console.log('this.props in editCover', this.props);
+		})
+	}
 
 	render() {
 		console.log('this.props', this.props);

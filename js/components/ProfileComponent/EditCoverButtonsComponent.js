@@ -2,6 +2,7 @@ import React from 'react';
 
 import CoverComponent from './CoverComponent';
 import EditCoverComponent from './EditCoverComponent';
+import EditActions from '../../actions/EditActions'
 
 export default class EditCoverButtonsComponent extends React.Component {
 	constructor(props) {
@@ -11,8 +12,13 @@ export default class EditCoverButtonsComponent extends React.Component {
 			editProfile: false
 		}
 
+		this.saveEdit = this.saveEdit.bind(this);
 	}
 
+	saveEdit() {
+		console.log('1. EditCoverButtonsComponent');
+		EditActions.saveEdit();
+	}
 
 	render() {
 		let _display = <CoverComponent currentUser={this.props.currentUser}/>;
@@ -39,7 +45,7 @@ export default class EditCoverButtonsComponent extends React.Component {
 									<button
 										className="btn btn-default"
 										style={styles.editBtn}
-										onClick={this.editCover}>
+										onClick={this.saveEdit}>
 										Save
 									</button>
 
