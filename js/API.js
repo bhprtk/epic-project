@@ -33,9 +33,12 @@ let API = {
 	},
 
 	updateUser(user) {
+		console.log('user', user);
+		console.log('JSON.stringify(user)', JSON.stringify(user));
 		ajax({
 			url: '/users/updateUser',
 			type: 'PUT',
+			// contentType: 'application/json',
 			data: user
 		})
 			.then(res => {

@@ -18,18 +18,21 @@ let userSchema = new mongoose.Schema({
 	picture: String,
 	miniResume: String,
 	location: String,
-	links: {
-		angelList: String,
-		linkedIn: String,
-		twitter: String,
-		facebook: String,
-		github: String,
-	}
+	angelListLink: String,
+	linkedInLink: String,
+	twitterLink: String,
+	facebookLink: String,
+	githubLink: String,
 })
 
 userSchema.statics.updateUser = (userId, newData, cb) => {
-	console.log('userId', userId);
-	console.log('newData', newData);
+	User.findById(userId, (err, dbUser) => {
+		for(let key in newData) {
+			console.log('typeof key', typeof key);
+			dbUser[key] = newData[key];
+		}
+		dbUser.save(cb);
+	})
 }
 
 userSchema.statics.signin = (userObj, cb) => {

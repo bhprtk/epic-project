@@ -38,7 +38,8 @@ router.get('/currentUser', User.isLoggedIn, (req, res) => {
 })
 
 router.put('/updateUser', User.isLoggedIn, (req, res) => {
-	// console.log('req.body', req.body);
+	console.log('req.body', req.body);
+
 	User.updateUser(req.user._id, req.body, (err, updatedUser) => {
 		console.log('updatedUser after saving', updatedUser);
 	})

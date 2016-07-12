@@ -13,18 +13,24 @@ export default class ProfileComponent extends React.Component {
 		this.state = {
 			currentUser: null
 		}
+
+		this.getCurrentUser = this.getCurrentUser.bind(this);
 	}
 
 	componentDidMount() {
 		API.getCurrentUser();
-		UserStore.on("getCurrentUser", () => {
+		UserStore.on("getCurrentUser", this.getCurrentUser);
+	}
+
+	componentWillUnmount() {
+		UserStore.removeListener("getCurrentUser", this.getCurrentUser)
+	}
+
+	getCurrentUser() {
 			this.setState({
 				currentUser: UserStore.getCurrentUser()
 			});
-		});
 	}
-
-
 
 	render() {
 		let _editCoverButtons;
