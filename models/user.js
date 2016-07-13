@@ -15,7 +15,7 @@ let userSchema = new mongoose.Schema({
 	email: { type: String, unique: true, required: true },
 	password: String,
 	displayName: String,
-	picture: {type: String, default: 'http://gazettereview.com/wp-content/uploads/2016/03/facebook-avatar.jpg'},
+	picture: {type: String},
 	miniResume: String,
 	location: String,
 	angelListLink: String,
