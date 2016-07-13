@@ -38,30 +38,51 @@ export default class CoverComponent extends React.Component {
 							className="img-circle"
 							/>
 						<p style={styles.displayName}>{_currentUser.displayName}</p>
-						<p className="col-md-6 col-md-offset-3" style={styles.paragraphs}>{_currentUser.miniResume}</p>
 
-						<p className="col-md-6 col-md-offset-3" style={styles.paragraphs}>
-							<i className="fa fa-map-marker"></i> {_currentUser.location}
+						<If condition={_currentUser.miniResume}>
+							<p className="col-md-6 col-md-offset-3" style={styles.paragraphs}>{_currentUser.miniResume}</p>
+						</If>
+
+						<If condition={_currentUser.location}>
+							<p className="col-md-6 col-md-offset-3" style={styles.paragraphs}>
+								<i className="fa fa-map-marker"></i> {_currentUser.location}
 							</p>
+						</If>
+
 
 						<p className="col-md-6 col-md-offset-3" style={styles.paragraphs}>
+
 							<If condition={_currentUser.angelListLink}>
 								<a style={styles.socialLink} href={_currentUser.angelListLink} target="_blank">
 									<i className="fa fa-angellist fa-2x" style={styles.socialButtons}> </i>
-
 								</a>
-
 							</If>
 
 							<If condition={_currentUser.linkedInLink}>
-								<i className="fa fa-linkedin-square fa-2x" style={styles.socialButtons}> </i>
-
+								<a href={_currentUser.linkedInLink} style={styles.socialLink} target="_blank">
+									<i className="fa fa-linkedin-square fa-2x" style={styles.socialButtons}> </i>
+								</a>
 							</If>
 
-							<i className="fa fa-twitter-square fa-2x" style={styles.socialButtons}> </i>
-							<i className="fa fa-facebook-square fa-2x" style={styles.socialButtons}> </i>
-							<i className="fa fa-github-square fa-2x" style={styles.socialButtons}> </i>
-							</p>
+							<If condition={_currentUser.twitterLink}>
+								<a href={_currentUser.twitterLink} style={styles.socialLink} target="_blank">
+									<i className="fa fa-twitter-square fa-2x" style={styles.socialButtons}> </i>
+								</a>
+							</If>
+
+							<If condition={_currentUser.facebookLink}>
+								<a href={_currentUser.facebookLink} style={styles.socialLink} target="_blank">
+									<i className="fa fa-facebook-square fa-2x" style={styles.socialButtons}> </i>
+								</a>
+							</If>
+
+							<If condition={_currentUser.githubLink}>
+								<a href={_currentUser.githubLink} style={styles.socialLink} target="_blank">
+									<i className="fa fa-github-square fa-2x" style={styles.socialButtons}> </i>
+								</a>
+							</If>
+
+						</p>
 
 					</div>
 				</div>
