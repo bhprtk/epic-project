@@ -32,11 +32,11 @@ export default class Navbar2 extends React.Component {
 							</a>
 						</li>
 						<li>
-							<a role="button">
+							<Link to="/feed/startup" activeStyle={{color:'red'}}>
 								<strong>
-								Create startups
-							</strong>
-							</a>
+									Create startups
+								</strong>
+							</Link>
 						</li>
 						<li>
 							<Link to="/feed/profile" activeStyle={{color:'red'}}>

@@ -6,6 +6,7 @@ import LoginComponent from "./components/MainComponent/LoginComponent";
 import SignupComponent from "./components/MainComponent/SignupComponent";
 import FeedComponent from "./components/FeedComponent/FeedComponent";
 import ProfileComponent from "./components/ProfileComponent/ProfileComponent";
+import StartupComponent from "./components/StartupComponent/StartupComponent";
 import Navbar2 from "./components/MainComponent/Navbar2";
 import { Router, Route, browserHistory, hashHistory } from 'react-router'
 
@@ -22,6 +23,7 @@ ReactDOM.render(
       <Route path="login" component={LoginComponent}/>
       <Route path="feed" component={FeedComponent}>
         <Route path="profile" component={ProfileComponent} />
+        <Route path="startup" component={StartupComponent} />
       </Route>
   </Router>
   , document.getElementById('react'));
