@@ -38,7 +38,18 @@ export default class CoverComponent extends React.Component {
 							style={styles.profilePic}
 							className="img-circle"
 							/>
-						<h2>{_currentUser.displayName}</h2>
+						<p style={styles.displayName}>{_currentUser.displayName}</p>
+						<p className="col-md-6 col-md-offset-3">{_currentUser.miniResume}</p>
+						<p className="col-md-6 col-md-offset-3">
+							<i className="fa fa-map-marker"></i> {_currentUser.location}
+							</p>
+						<p className="col-md-6 col-md-offset-3">
+							<i className="fa fa-angellist fa-2x" style={styles.socialButtons}> </i>
+							<i className="fa fa-linkedin fa-2x" style={styles.socialButtons}> </i>
+							<i className="fa fa-twitter fa-2x" style={styles.socialButtons}> </i>
+							<i className="fa fa-facebook fa-2x" style={styles.socialButtons}> </i>
+							<i className="fa fa-github fa-2x" style={styles.socialButtons}> </i>
+							</p>
 					</div>
 				</div>
 
@@ -60,5 +71,11 @@ const styles = {
 	editBtn: {
 		marginBottom: 10,
 		marginTop: -10
+	},
+	displayName: {
+		fontSize: 64
+	},
+	socialButtons: {
+		paddingLeft: 10
 	}
 }
