@@ -5,10 +5,6 @@ export default class Navbar2 extends React.Component {
 		super(props);
 	}
 
-	clickThis() {
-		console.log('huheuheuhue');
-	}
-
 	render() {
 		return (
 			<div className="navbar navbar-default" style={styles.container}>
@@ -23,13 +19,11 @@ export default class Navbar2 extends React.Component {
 
 					<ul className="nav navbar-nav navbar-right">
 						<li>
-							<a
-								role="button"
-								onClick={this.clickThis}>
+							<Link to="/feed/find" activeStyle={{color:'red'}}>
 								<strong>
 								Find startups
 							</strong>
-							</a>
+						</Link>
 						</li>
 						<li>
 							<Link to="/feed/startup" activeStyle={{color:'red'}}>
