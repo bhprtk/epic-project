@@ -10,5 +10,19 @@ let companySchema = new mongoose.Schema({
 	location: String,
 	teamSize: String,
 	whyUs: String,
-	product: String
+	product: String,
+	addedBy: {type: mongoose.Schema.Types.ObjectId, ref:'User'}
 })
+
+companySchema.statics.addNewCompany = (company, userId, cb) => {
+	company.addedBy = userId;
+	let newCompany = new Company();
+	for(let k in company) {
+		newCompany[k] = company[k];
+	}
+	newCompany.save(cb);
+}
+
+
+let Company = mongoose.model('Company', companySchema);
+export default Company;

@@ -52,7 +52,7 @@ userSchema.statics.register = (newUser, cb) => {
 		bcrypt.hash(newUser.password, 12, (err, hash) => {
 			if(err) return cb(err);
 
-			var user = new User({
+			let user = new User({
 				email: newUser.email,
 				password: hash,
 				displayName: newUser.displayName
