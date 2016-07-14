@@ -9,6 +9,7 @@ import dotenv from 'dotenv';
 dotenv.load();
 
 import users from './routes/users';
+import companies from './routes/companies';
 
 let PORT = process.env.PORT || 3000;
 
@@ -28,6 +29,7 @@ app.use(cookieParser());
 app.use(express.static('public'));
 
 app.use('/users', users);
+app.use('/companies', companies);
 
 // app.get('*', (req, res) => {
 //   res.sendFile(path.resolve(__dirname, 'public', 'index.html'))

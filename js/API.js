@@ -47,6 +47,11 @@ let API = {
 			.catch(err => {
 				// console.log('err', err);
 			})
+	},
+
+	addCompany(company) {
+		// post('/compan')
+		console.log('company', company);
 	}
 }
 
