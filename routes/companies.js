@@ -6,11 +6,18 @@ import User from '../models/User';
 let router = express.Router();
 
 router.post('/addNewCompany', User.isLoggedIn, (req, res) => {
-	console.log('req.user', req.user);
 	Company.addNewCompany(req.body, req.user._id, (err, savedCompany) => {
 		if(err) res.status(400).send(err);
 
-		console.log('savedCompany', savedCompany);
+		res.send(savedCompany);
+	})
+})
+
+router.get('/getAll', (req, res) => {
+	Company.find({}, (err, companies) => {
+		if(err) res.status(400).send(err);
+
+		res.send(companies);
 	})
 })
 
