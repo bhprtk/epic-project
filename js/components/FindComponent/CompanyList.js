@@ -6,7 +6,11 @@ export default class CompanyList extends React.Component {
 	constructor(props) {
 		super(props);
 
+		this.state = {
+			companies: null
+		}
 
+		this.getAllCompanies = this.getAllCompanies.bind(this);
 	}
 
 	componentDidMount() {
@@ -15,19 +19,27 @@ export default class CompanyList extends React.Component {
 	}
 
 	getAllCompanies() {
-		console.log('hehhehehe', CompaniesStore.getAllCompanies());
+		this.setState({
+			companies: CompaniesStore.getAllCompanies()
+		})
+		console.log('this.state', this.state);
+
 	}
 
 	render() {
 		return(
-			<div className="list-group">
-			  <button type="button" className="list-group-item">Cras justo odio</button>
-			  <button type="button" className="list-group-item">Dapibus ac facilisis in</button>
-			  <button type="button" className="list-group-item">Morbi leo risus</button>
-			  <button type="button" className="list-group-item">Porta ac consectetur ac</button>
-			  <button type="button" className="list-group-item">Vestibulum at eros</button>
-			</div>
+			<div>
+				<h1>hello</h1>
+				<If condition={this.state.companies}>
+					<ul>
+						{this.state.companies.map(company => {
+							return <li>{company.website}</li>
+						})}
+					</ul>
 
+				</If>
+
+			</div>
 
 		)
 	}
