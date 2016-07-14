@@ -1,6 +1,7 @@
 import {get, post, ajax, put} from 'jquery';
 import UserActions from './actions/UserActions';
 import EditActions from './actions/EditActions';
+import CompanyActions from './actions/CompanyActions';
 
 let API = {
 	registerUser(user) {
@@ -53,6 +54,16 @@ let API = {
 		post('/companies/addNewCompany', company)
 			.then(res => {
 				console.log('res', res);
+			})
+			.catch(err => {
+				console.log('err', err);
+			})
+	},
+
+	getAllCompanies() {
+		get('/companies/getAll')
+			.then(res => {
+				CompanyActions.getAllCompanies(res);
 			})
 			.catch(err => {
 				console.log('err', err);
