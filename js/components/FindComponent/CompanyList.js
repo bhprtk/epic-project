@@ -23,8 +23,10 @@ export default class CompanyList extends React.Component {
 		this.setState({
 			companies: CompaniesStore.getAllCompanies()
 		})
-		console.log('this.state', this.state);
+	}
 
+	componentWillUnmount() {
+		UserStore.removeListener("getAllCompanies", this.getAllCompanies);
 	}
 
 	render() {

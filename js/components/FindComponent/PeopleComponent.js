@@ -2,11 +2,16 @@ import React from 'react';
 
 import API from '../../API';
 import UserStore from '../../stores/UserStore';
+import UserListItem from './UserListItem';
 
 export default class PeopleComponent extends React.Component {
 
 	constructor(props) {
 		super(props);
+
+		this.state = {
+			users: null
+		}
 
 		this.getAllUsers = this.getAllUsers.bind(this);
 	}
@@ -17,12 +22,47 @@ export default class PeopleComponent extends React.Component {
 	}
 
 	getAllUsers() {
-		console.log('users', UserStore.getAllUsers());
+		this.setState({
+			users: UserStore.getAllUsers()
+		})
+	}
+
+	componentWillUnmount() {
+		UserStore.removeListener("getAllUsers", this.getAllUsers);
 	}
 
 	render() {
 		return (
-			<h1>PeopleComponent</h1>
+			<div>
+				<div style={styles.titleDiv}>
+					<div className="container text-center">
+						<h1>Find People</h1>
+					</div>
+				</div>
+
+				<If condition={this.state.users}>
+					<div className="container">
+						<div classname="col-md-4 col-sm-6">
+							{this.state.users.map(user => {
+								return <UserListItem user={user} />
+							})}
+						</div>
+					</div>
+
+				</If>
+
+
+			</div>
 		)
+	}
+}
+
+const styles = {
+	titleDiv: {
+		height: 150,
+		background: '#222',
+		color: '#fff',
+		paddingTop: 30,
+		marginBottom: 20
 	}
 }
