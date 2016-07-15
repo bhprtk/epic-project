@@ -28,10 +28,16 @@ let UserActions = {
 	},
 
 	updatedUser(user) {
-		console.log('updateUser', user);
 		AppDispatcher.dispatch({
 			actionType: ActionTypes.UPDATED_USER,
 			user
+		})
+	},
+
+	getAllUsers(users) {
+		AppDispatcher.dispatch({
+			actionType: ActionTypes.ALL_USERS,
+			users
 		})
 	}
 };

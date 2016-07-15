@@ -73,7 +73,7 @@ let API = {
 	getAllUsers() {
 		get('/users/getAllUsers')
 			.then(res => {
-				console.log('res', res);
+				UserActions.getAllUsers(res);
 			})
 			.catch(err => {
 				console.log('err', err);
