@@ -68,6 +68,16 @@ let API = {
 			.catch(err => {
 				console.log('err', err);
 			})
+	},
+
+	getAllUsers() {
+		get('/users/getAllUsers')
+			.then(res => {
+				console.log('res', res);
+			})
+			.catch(err => {
+				console.log('err', err);
+			})
 	}
 }
 
