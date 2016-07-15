@@ -1,5 +1,4 @@
 import React from 'react';
-import NavbarComponent from '../MainComponent/NavbarComponent';
 import Navbar2 from '../MainComponent/Navbar2';
 import API from '../../API';
 import UserStore from '../../stores/UserStore';

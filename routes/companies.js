@@ -21,4 +21,6 @@ router.get('/getAll', (req, res) => {
 	})
 })
 
+router.put('/editCompany')
+
 export default router;

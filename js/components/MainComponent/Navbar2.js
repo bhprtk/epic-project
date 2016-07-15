@@ -19,16 +19,23 @@ export default class Navbar2 extends React.Component {
 
 					<ul className="nav navbar-nav navbar-right">
 						<li>
+							<Link to="/feed/people" activeStyle={{color:'red'}}>
+								<strong>
+								Find People
+							</strong>
+						</Link>
+						</li>
+						<li>
 							<Link to="/feed/find" activeStyle={{color:'red'}}>
 								<strong>
-								Find startups
+								Find Startups
 							</strong>
 						</Link>
 						</li>
 						<li>
 							<Link to="/feed/startup" activeStyle={{color:'red'}}>
 								<strong>
-									Create startups
+									Create Startups
 								</strong>
 							</Link>
 						</li>

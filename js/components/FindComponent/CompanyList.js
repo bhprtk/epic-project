@@ -1,6 +1,7 @@
 import React from 'react';
 import API from '../../API';
 import CompaniesStore from '../../stores/CompaniesStore';
+import CompanyListItem from './CompanyListItem';
 
 export default class CompanyList extends React.Component {
 	constructor(props) {
@@ -29,13 +30,12 @@ export default class CompanyList extends React.Component {
 	render() {
 		return(
 			<div>
-				<h1>hello</h1>
 				<If condition={this.state.companies}>
-					<ul>
+					<div className="list-group">
 						{this.state.companies.map(company => {
-							return <li>{company.website}</li>
+							return <CompanyListItem company={company}/>
 						})}
-					</ul>
+					</div>
 
 				</If>
 

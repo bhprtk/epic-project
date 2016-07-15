@@ -8,6 +8,7 @@ import FeedComponent from "./components/FeedComponent/FeedComponent";
 import ProfileComponent from "./components/ProfileComponent/ProfileComponent";
 import StartupComponent from "./components/StartupComponent/StartupComponent";
 import FindComponent from "./components/FindComponent/FindComponent";
+import PeopleComponent from "./components/FindComponent/PeopleComponent";
 import Navbar2 from "./components/MainComponent/Navbar2";
 import { Router, Route, browserHistory, hashHistory } from 'react-router'
 
@@ -26,6 +27,7 @@ ReactDOM.render(
         <Route path="profile" component={ProfileComponent} />
         <Route path="startup" component={StartupComponent} />
         <Route path="find" component={FindComponent} />
+        <Route path="people" component={PeopleComponent} />
       </Route>
   </Router>
   , document.getElementById('react'));
