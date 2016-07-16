@@ -33,7 +33,7 @@ export default class CoverComponent extends React.Component {
 					style={styles.container}>
 					<div className="container text-center">
 						<img
-							src={_currentUser.picture || `http://gazettereview.com/wp-content/uploads/2016/03/facebook-avatar.jpg`}
+							src={_currentUser.picture}
 							style={styles.profilePic}
 							className="img-circle"
 							/>

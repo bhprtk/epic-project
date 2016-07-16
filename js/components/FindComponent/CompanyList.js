@@ -26,7 +26,7 @@ export default class CompanyList extends React.Component {
 	}
 
 	componentWillUnmount() {
-		UserStore.removeListener("getAllCompanies", this.getAllCompanies);
+		CompaniesStore.removeListener("getAllCompanies", this.getAllCompanies);
 	}
 
 	render() {
@@ -35,7 +35,7 @@ export default class CompanyList extends React.Component {
 				<If condition={this.state.companies}>
 					<div className="list-group">
 						{this.state.companies.map(company => {
-							return <CompanyListItem company={company}/>
+							return <CompanyListItem company={company} />
 						})}
 					</div>
 
