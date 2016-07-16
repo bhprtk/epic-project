@@ -42,11 +42,9 @@ export default class PeopleComponent extends React.Component {
 
 				<If condition={this.state.users}>
 					<div className="container">
-						<div classname="col-md-4 col-sm-6">
 							{this.state.users.map(user => {
-								return <UserListItem user={user} />
+								return <UserListItem key={user._id} user={user} />
 							})}
-						</div>
 					</div>
 
 				</If>
