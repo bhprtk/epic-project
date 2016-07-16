@@ -35,7 +35,7 @@ export default class CompanyList extends React.Component {
 				<If condition={this.state.companies}>
 					<div className="list-group">
 						{this.state.companies.map(company => {
-							return <CompanyListItem company={company} />
+							return <CompanyListItem key={company._id} company={company} />
 						})}
 					</div>
 
