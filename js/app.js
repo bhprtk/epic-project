@@ -6,6 +6,7 @@ import LoginComponent from "./components/MainComponent/LoginComponent";
 import SignupComponent from "./components/MainComponent/SignupComponent";
 import FeedComponent from "./components/FeedComponent/FeedComponent";
 import ProfileComponent from "./components/ProfileComponent/ProfileComponent";
+import ViewProfileComponent from "./components/ProfileComponent/ViewProfileComponent";
 import StartupComponent from "./components/StartupComponent/StartupComponent";
 import FindComponent from "./components/FindComponent/FindComponent";
 import PeopleComponent from "./components/FindComponent/PeopleComponent";
@@ -24,7 +25,8 @@ ReactDOM.render(
       <Route path="signup" component={SignupComponent}/>
       <Route path="login" component={LoginComponent}/>
       <Route path="feed" component={FeedComponent}>
-        <Route path="profile/:userId" component={ProfileComponent} />
+        <Route path="profile" component={ProfileComponent} />
+        <Route path="viewProfile/:userId" component={ViewProfileComponent} />
         <Route path="startup" component={StartupComponent} />
         <Route path="find" component={FindComponent} />
         <Route path="people" component={PeopleComponent} />

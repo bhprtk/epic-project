@@ -81,7 +81,6 @@ let API = {
 	},
 
 	getOneUser(userId) {
-		console.log('userId in api', userId);
 		get(`/users/getOneUser/${userId}`)
 			.then(res => {
 				UserActions.getOneUser(res);

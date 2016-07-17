@@ -11,7 +11,7 @@ export default class UserListItem extends React.Component {
 	}
 
 	openProfile() {
-		hashHistory.push(`/feed/profile/${this.props.user._id}`);
+		hashHistory.push(`/feed/viewProfile/${this.props.user._id}`);
 	}
 
 	render() {
