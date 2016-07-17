@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
+
+import InfoComponent from './InfoComponent';
 export default class SplashComponent extends React.Component {
 
 	constructor(props) {
@@ -12,12 +14,16 @@ export default class SplashComponent extends React.Component {
 
 	render() {
 		return (
+			<div>
 				<div className="text-center" style={styles.splash}>
 					<div className="container">
 
 						<div>
-							<p style={styles.titleDiv}>create or join a startup</p>
-							<h1><strong>START ME UP</strong></h1>
+							<p style={styles.titleDiv}>CREATE OR JOIN A STARTUP</p>
+
+							<p style={styles.title}>
+								<strong>START ME UP</strong>
+							</p>
 
 							<Link to="/signup">
 								<button
@@ -39,6 +45,10 @@ export default class SplashComponent extends React.Component {
 
 				</div>
 
+				<InfoComponent />
+
+			</div>
+
 		)
 	}
 }
@@ -51,7 +61,9 @@ const styles = {
 		color: '#fff'
 	},
 	titleDiv: {
-		paddingTop: '40vh'
+		paddingTop: '30vh',
+		fontFamily: 'Fjalla',
+		fontSize: 18
 	},
 	mainTitle: {
 		fontSize: '64px'
@@ -61,5 +73,9 @@ const styles = {
 		// marginRight: 5,
 		width: '150px',
 		color: '#4E80B2'
+	},
+	title: {
+		fontSize: 80,
+		fontFamily: 'Fjalla One'
 	}
 }
