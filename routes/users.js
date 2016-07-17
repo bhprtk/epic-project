@@ -51,7 +51,7 @@ router.get('/getOneUser/:userId', (req, res) => {
 	User.findById(req.params.userId, (err, user) => {
 		if(err) res.status(400).send(err);
 		res.send(user);
-	})
+	}).select('-password');
 })
 
 router.put('/updateUser', User.isLoggedIn, (req, res) => {

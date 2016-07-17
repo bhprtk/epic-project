@@ -84,7 +84,7 @@ let API = {
 		console.log('userId in api', userId);
 		get(`/users/getOneUser/${userId}`)
 			.then(res => {
-				console.log('res', res);
+				UserActions.getOneUser(res);
 			})
 			.catch(err => {
 				console.log('err', err);

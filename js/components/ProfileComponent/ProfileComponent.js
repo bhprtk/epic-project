@@ -15,21 +15,22 @@ export default class ProfileComponent extends React.Component {
 		}
 
 		this.getCurrentUser = this.getCurrentUser.bind(this);
+		this.getOneUser = this.getOneUser.bind(this);
 	}
 
 	componentDidMount() {
-		console.log('this.props.params', this.props.params);
 		if(this.props.params.userId !== 'null') {
 			API.getOneUser(this.props.params.userId);
 		} else {
-			console.log('yupyyupyup');
 			API.getCurrentUser();
 		}
 		UserStore.on("getCurrentUser", this.getCurrentUser);
+		UserStore.on("getOneUser", this.getOneUser);
 	}
 
 	componentWillUnmount() {
-		UserStore.removeListener("getCurrentUser", this.getCurrentUser)
+		UserStore.removeListener("getCurrentUser", this.getCurrentUser);
+		UserStore.removeListener("getOneUser", this.getOneUser);
 	}
 
 	getCurrentUser() {
@@ -38,10 +39,16 @@ export default class ProfileComponent extends React.Component {
 			});
 	}
 
+	getOneUser() {
+		this.setState({
+			oneUser: UserStore.getOneUser()
+		});
+	}
+
 	render() {
 		let _editCoverButtons;
-		if(this.state.currentUser) {
-			_editCoverButtons = <EditCoverButtonsComponent currentUser={this.state.currentUser}/>
+		if(this.state.currentUser || this.state.oneUser) {
+			_editCoverButtons = <EditCoverButtonsComponent currentUser={this.state.currentUser || this.state.oneUser}/>
 		}
 		return (
 			<div>

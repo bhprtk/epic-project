@@ -2,7 +2,7 @@ import AppDispatcher from '../AppDispatcher';
 import { ActionTypes } from '../Constants';
 import { EventEmitter } from 'events';
 
-let _newUser, _loginResponse, _currentUser, _allUsers;
+let _newUser, _loginResponse, _currentUser, _allUsers, _oneUser;
 class UserStore extends EventEmitter {
 	constructor(props) {
 		super(props);
@@ -30,6 +30,11 @@ class UserStore extends EventEmitter {
 					this.emit('getAllUsers');
 					break;
 
+				case ActionTypes.ONE_USER:
+					_oneUser = action.user;
+					this.emit('getOneUser');
+					break;
+
 				default:
 			}
 		})
@@ -49,6 +54,10 @@ class UserStore extends EventEmitter {
 
 	getAllUsers() {
 		return _allUsers;
+	}
+
+	getOneUser() {
+		return _oneUser;
 	}
 
 

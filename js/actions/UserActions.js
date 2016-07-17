@@ -39,6 +39,13 @@ let UserActions = {
 			actionType: ActionTypes.ALL_USERS,
 			users
 		})
+	},
+
+	getOneUser(user) {
+		AppDispatcher.dispatch({
+			actionType: ActionTypes.ONE_USER,
+			user
+		})
 	}
 };
 
