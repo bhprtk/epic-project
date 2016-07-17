@@ -24,7 +24,7 @@ ReactDOM.render(
       <Route path="signup" component={SignupComponent}/>
       <Route path="login" component={LoginComponent}/>
       <Route path="feed" component={FeedComponent}>
-        <Route path="profile" component={ProfileComponent} />
+        <Route path="profile/:userId" component={ProfileComponent} />
         <Route path="startup" component={StartupComponent} />
         <Route path="find" component={FindComponent} />
         <Route path="people" component={PeopleComponent} />

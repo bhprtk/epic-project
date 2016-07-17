@@ -18,7 +18,13 @@ export default class ProfileComponent extends React.Component {
 	}
 
 	componentDidMount() {
-		API.getCurrentUser();
+		console.log('this.props.params', this.props.params);
+		if(this.props.params.userId !== 'null') {
+			API.getOneUser(this.props.params.userId);
+		} else {
+			console.log('yupyyupyup');
+			API.getCurrentUser();
+		}
 		UserStore.on("getCurrentUser", this.getCurrentUser);
 	}
 

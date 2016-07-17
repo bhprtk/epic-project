@@ -40,7 +40,7 @@ export default class Navbar2 extends React.Component {
 							</Link>
 						</li>
 						<li>
-							<Link to="/feed/profile" activeStyle={{color:'red'}}>
+							<Link to={`/feed/profile/${null}`} activeStyle={{color:'red'}}>
 								<strong>
 								Profile
 							</strong>

@@ -78,6 +78,17 @@ let API = {
 			.catch(err => {
 				console.log('err', err);
 			})
+	},
+
+	getOneUser(userId) {
+		console.log('userId in api', userId);
+		get(`/users/getOneUser/${userId}`)
+			.then(res => {
+				console.log('res', res);
+			})
+			.catch(err => {
+				console.log('err', err);
+			})
 	}
 }
 

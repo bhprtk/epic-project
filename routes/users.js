@@ -47,6 +47,13 @@ router.get('/currentUser', User.isLoggedIn, (req, res) => {
 	res.send(req.user);
 })
 
+router.get('/getOneUser/:userId', (req, res) => {
+	User.findById(req.params.userId, (err, user) => {
+		if(err) res.status(400).send(err);
+		res.send(user);
+	})
+})
+
 router.put('/updateUser', User.isLoggedIn, (req, res) => {
 	User.updateUser(req.user._id, req.body, (err, updatedUser) => {
 		if(err) return res.status(400).send(err);
