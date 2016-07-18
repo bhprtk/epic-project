@@ -33,6 +33,13 @@ export default class EditCoverButtonsComponent extends React.Component {
 											Edit Profile
 										</button>
 
+										<button
+											className="btn btn-default pull-right"
+											style={styles.logoutBtn}
+											onClick={() => {console.log('hello');}}>
+											Logout
+										</button>
+
 									</div>;
 		if(this.state.editCover) {
 			_display = <EditCoverComponent currentUser={this.props.currentUser}/>;
@@ -40,7 +47,7 @@ export default class EditCoverButtonsComponent extends React.Component {
 									className="container">
 									<button
 										className="btn btn-default"
-										style={styles.editBtn}
+										style={styles.cancelBtn}
 										onClick={() => {
 											this.setState({editCover: false});
 										}}>
@@ -48,7 +55,7 @@ export default class EditCoverButtonsComponent extends React.Component {
 									</button>
 									<button
 										className="btn btn-default"
-										style={styles.editBtn}
+										style={styles.saveBtn}
 										onClick={this.saveEdit}>
 										Save
 									</button>
@@ -69,10 +76,26 @@ export default class EditCoverButtonsComponent extends React.Component {
 const styles = {
 	editCover: {
 		marginBottom: 10,
-		marginTop: -10
+		marginTop: -10,
+		color: 'green',
+		borderColor: 'green'
 	},
-	editBtn: {
+	logoutBtn: {
+		marginBottom: 10,
+		marginTop: -10,
+		color: 'red',
+		borderColor: 'red'
+	},
+	saveBtn: {
 		marginRight: 10,
-		width: 75
+		width: 75,
+		color: 'green',
+		borderColor: 'green'
+	},
+	cancelBtn: {
+		marginRight: 10,
+		width: 75,
+		color: 'red',
+		borderColor: 'red'
 	}
 }
