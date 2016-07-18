@@ -5,6 +5,7 @@ import LoginComponent from './LoginComponent';
 import SplashComponent from './SplashComponent';
 import Navbar2 from './Navbar2';
 import InfoComponent from './InfoComponent';
+import FooterComponent from './FooterComponent';
 
 
 
@@ -20,6 +21,7 @@ export default class MainComponent extends React.Component {
 				  <Navbar2 />
 				<SplashComponent />
 				<InfoComponent />
+				<FooterComponent />
 			</div>
 		)
 	}

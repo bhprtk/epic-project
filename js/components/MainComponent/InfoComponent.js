@@ -59,7 +59,11 @@ export default class InfoComponent extends React.Component {
 
 const styles = {
 	container: {
-		height: '100vh',
+		// height: '100vh',
+		background: '#d3d3d3',
+		// marginTop: '-10px',
+		paddingTop: '20px',
+		paddingBottom: 100,
 	},
 	banner: {
 		// height: '30vh',
