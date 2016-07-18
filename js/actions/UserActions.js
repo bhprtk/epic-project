@@ -46,6 +46,13 @@ let UserActions = {
 			actionType: ActionTypes.ONE_USER,
 			user
 		})
+	},
+
+	logout(msg) {
+		AppDispatcher.dispatch({
+			actionType: ActionTypes.LOGOUT_USER,
+			msg
+		})
 	}
 };
 

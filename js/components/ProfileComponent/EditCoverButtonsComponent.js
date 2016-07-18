@@ -1,8 +1,11 @@
 import React from 'react';
+import {hashHistory} from 'react-router';
 
 import CoverComponent from './CoverComponent';
 import EditCoverComponent from './EditCoverComponent';
 import EditActions from '../../actions/EditActions'
+import API from '../../API';
+import UserStore from '../../stores/UserStore';
 
 export default class EditCoverButtonsComponent extends React.Component {
 	constructor(props) {
@@ -13,6 +16,16 @@ export default class EditCoverButtonsComponent extends React.Component {
 		}
 
 		this.saveEdit = this.saveEdit.bind(this);
+		this.logout = this.logout.bind(this);
+		this.logoutUser = this.logoutUser.bind(this);
+	}
+
+	componentDidMount() {
+		UserStore.on('logout', this.logoutUser);
+	}
+
+	componentWillUnmount() {
+		UserStore.removeListener('logout', this.logoutUser)
 	}
 
 	saveEdit() {
@@ -20,6 +33,16 @@ export default class EditCoverButtonsComponent extends React.Component {
 		this.setState({
 			editCover: false
 		})
+	}
+
+	logout() {
+		API.logout();
+	}
+
+	logoutUser() {
+		if(UserStore.getLogoutMsg()) {
+			hashHistory.push('/');
+		}
 	}
 
 	render() {
@@ -36,7 +59,7 @@ export default class EditCoverButtonsComponent extends React.Component {
 										<button
 											className="btn btn-default pull-right"
 											style={styles.logoutBtn}
-											onClick={() => {console.log('hello');}}>
+											onClick={this.logout}>
 											Logout
 										</button>
 

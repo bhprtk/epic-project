@@ -29,10 +29,6 @@ router.post('/register', (req, res) => {
 })
 
 router.post('/signin', (req, res) => {
-
-// todo: make user signin only sign in one user
-// learn how to add emojis
-
 	User.signin(req.body, (err, token) => {
 		if(err) return res.status(400).send(err);
 		res.cookie('epicAccessToken', token).send('Log in successful');
@@ -40,7 +36,7 @@ router.post('/signin', (req, res) => {
 })
 
 router.delete('/logout', (req, res) => {
-	res.clearCookie('epicAccessToken').send();
+	res.clearCookie('epicAccessToken').send('Logout Successful');
 })
 
 router.get('/currentUser', User.isLoggedIn, (req, res) => {

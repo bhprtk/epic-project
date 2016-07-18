@@ -88,7 +88,21 @@ let API = {
 			.catch(err => {
 				console.log('err', err);
 			})
+	},
+
+	logout() {
+		ajax({
+			url: '/users/logout',
+			type: 'DELETE',
+		})
+			.then(res => {
+				UserActions.logout(res);
+			})
+			.catch(err => {
+				console.log('err', err);
+			})
 	}
+
 }
 
 export default API;

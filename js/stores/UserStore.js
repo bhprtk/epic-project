@@ -2,7 +2,7 @@ import AppDispatcher from '../AppDispatcher';
 import { ActionTypes } from '../Constants';
 import { EventEmitter } from 'events';
 
-let _newUser, _loginResponse, _currentUser, _allUsers, _oneUser;
+let _newUser, _loginResponse, _currentUser, _allUsers, _oneUser, _logoutMsg;
 class UserStore extends EventEmitter {
 	constructor(props) {
 		super(props);
@@ -35,6 +35,11 @@ class UserStore extends EventEmitter {
 					this.emit('getOneUser');
 					break;
 
+				case ActionTypes.LOGOUT_USER:
+					_logoutMsg = action.msg;
+					this.emit('logout');
+					break;
+
 				default:
 			}
 		})
@@ -58,6 +63,10 @@ class UserStore extends EventEmitter {
 
 	getOneUser() {
 		return _oneUser;
+	}
+
+	getLogoutMsg() {
+		return _logoutMsg;
 	}
 
 
