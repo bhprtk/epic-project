@@ -41,7 +41,6 @@ let API = {
 			data: user
 		})
 			.then(res => {
-				console.log('res is back', res);
 				API.getCurrentUser();
 				// UserActions.updatedUser(res);
 			})

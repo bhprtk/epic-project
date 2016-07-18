@@ -123,7 +123,7 @@ const styles = {
 		paddingTop: 10
 	},
 	socialLink: {
-		color: 'white'
+		color: '#696969'
 	},
 	banner: {
 		position: 'absolute',

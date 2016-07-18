@@ -10,7 +10,6 @@ class SaveEditStore extends EventEmitter {
 
 			switch(action.actionType) {
 				case ActionTypes.SAVE_EDIT:
-					console.log('action in SaveEditStore', action);
 					this.emit('saveEdit');
 					break;
 				default:
