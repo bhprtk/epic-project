@@ -9,20 +9,28 @@ export default class FooterComponent extends React.Component {
 					<hr/>
 					<div className="col-md-4 text-center">
 						<img src="2d.png" className="img-circle" style={styles.myPic}/>
-						<h3>Pratik Bhandari</h3>
+						<h4>Pratik Bhandari</h4>
 
 					</div>
 
 					<div className="col-md-4 text-center">
-						Social links
+						Connect via social media
 						<p>
 							<i className="fa fa-github-square fa-3x" style={styles.social}></i>
 							<i className="fa fa-angellist fa-3x" style={styles.social}></i>
 							<i className="fa fa-linkedin-square fa-3x" style={styles.social}></i>
 						</p>
-						<button className="btn btn-danger-outline">
-							GITHUB REPO
-						</button>
+						<a role="button" className="btn btn-primary" href="mailto:lazy.monk.13@gmail.com">
+							<span className="fa fa-paper-plane" style={styles.plane}></span>
+
+							Email
+						</a>
+					</div>
+
+					<div className="col-md-4 text-center">
+						<a role="button" className="btn btn-default">
+							Project repo
+						</a>
 					</div>
 
 				</div>
@@ -36,14 +44,19 @@ const styles = {
 	container: {
 		// height: '40vh',
 		color: '#696969',
-		background: '#fafafa'
+		background: '#fafafa',
+		paddingBottom: 50
 	},
 	myPic: {
-		height: 150,
-		width: 150,
+		height: 100,
+		width: 100,
 	},
 	social: {
 		marginRight: 10,
-		marginTop: 10,
+		marginTop: 20,
+		marginBottom: 20,
+	},
+	plane: {
+		marginRight: 10
 	}
 }
