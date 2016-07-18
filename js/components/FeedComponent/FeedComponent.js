@@ -12,9 +12,18 @@ export default class FeedComponent extends React.Component {
 		return (
 			<div>
 				<Navbar2 />
-				{this.props.children}
+				<div style={styles.container}>
+					{this.props.children}
+
+				</div>
 
 			</div>
 		)
+	}
+}
+
+const styles = {
+	container: {
+		paddingTop: 70
 	}
 }

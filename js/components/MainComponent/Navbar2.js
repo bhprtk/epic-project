@@ -7,7 +7,7 @@ export default class Navbar2 extends React.Component {
 
 	render() {
 		return (
-			<div className="navbar navbar-default" style={styles.container}>
+			<div className="navbar navbar-default navbar-fixed-top" style={styles.container}>
 			  <div className="container">
 			    <div className="navbar-header">
 			      <Link to="/" className="navbar-brand">
@@ -57,5 +57,6 @@ export default class Navbar2 extends React.Component {
 const styles = {
 	container: {
 		background: '#fff',
+		marginBottom: '500px'
 	}
 }

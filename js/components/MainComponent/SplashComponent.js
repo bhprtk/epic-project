@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import InfoComponent from './InfoComponent';
 export default class SplashComponent extends React.Component {
 
 	constructor(props) {
@@ -44,8 +43,6 @@ export default class SplashComponent extends React.Component {
 					</div>
 
 				</div>
-
-				<InfoComponent />
 
 			</div>
 
