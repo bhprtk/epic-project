@@ -10,26 +10,36 @@ export default class FooterComponent extends React.Component {
 					<div className="col-md-4 text-center">
 						<img src="2d.png" className="img-circle" style={styles.myPic}/>
 						<h4>Pratik Bhandari</h4>
-
+						<a href="http://www.pratikbhandari.xyz" target="_blank">
+							<span>www.pratikbhandari.xyz</span>
+						</a>
 					</div>
 
 					<div className="col-md-4 text-center">
 						Connect via social media
 						<p>
-							<i className="fa fa-github-square fa-3x" style={styles.social}></i>
-							<i className="fa fa-angellist fa-3x" style={styles.social}></i>
-							<i className="fa fa-linkedin-square fa-3x" style={styles.social}></i>
-						</p>
-						<a role="button" className="btn btn-primary" href="mailto:lazy.monk.13@gmail.com">
-							<span className="fa fa-paper-plane" style={styles.plane}></span>
+							<a href="https://github.com/lazy-monk" target="_blank">
+								<i className="fa fa-github-square fa-3x" style={styles.social}></i>
 
+							</a>
+							<a href="https://angel.co/lazy-monk" target="_blank">
+								<i className="fa fa-angellist fa-3x" style={styles.social}></i>
+							</a>
+							<a href="https://www.linkedin.com/in/pratik-bhandari-b00032115" target="_blank">
+								<i className="fa fa-linkedin-square fa-3x" style={styles.social}></i>
+
+							</a>
+						</p>
+						<a role="button" className="btn btn-success" href="mailto:lazy.monk.13@gmail.com" style={styles.emailBtn}>
+							<span className="fa fa-paper-plane" style={styles.icon}></span>
 							Email
 						</a>
 					</div>
 
 					<div className="col-md-4 text-center">
-						<a role="button" className="btn btn-default">
-							Project repo
+						<a role="button" className="btn btn-default btn-lg" href="https://github.com/lazy-monk/epic-project" target="_blank" style={styles.repoBtn}>
+							<span className="fa fa-github-alt" style={styles.icon}></span>
+							Project repository
 						</a>
 					</div>
 
@@ -56,7 +66,13 @@ const styles = {
 		marginTop: 20,
 		marginBottom: 20,
 	},
-	plane: {
+	icon: {
 		marginRight: 10
+	},
+	emailBtn: {
+		background: '#197319'
+	},
+	repoBtn: {
+		marginTop: 40
 	}
 }
