@@ -58,7 +58,7 @@ const styles = {
 		color: '#fff'
 	},
 	titleDiv: {
-		paddingTop: '30vh',
+		paddingTop: '35vh',
 		fontFamily: 'Fjalla',
 		fontSize: 18
 	},
