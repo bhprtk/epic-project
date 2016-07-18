@@ -19,7 +19,7 @@ export default class MainComponent extends React.Component {
 	render() {
 		return (
 			<div>
-				  <Navbar1 />
+				<Navbar1 />
 				<SplashComponent />
 				<InfoComponent />
 				<FooterComponent />

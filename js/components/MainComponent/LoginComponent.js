@@ -9,6 +9,7 @@ import { Link, hashHistory, browserHistory } from 'react-router';
 import API from '../../API';
 import UserStore from '../../stores/UserStore';
 import DisplayErrorComponent from './DisplayErrorComponent';
+import Navbar1 from './Navbar1';
 
 import {
 	Button,
@@ -61,49 +62,52 @@ export default class LoginComponent extends React.Component {
 		}
 
 		return(
-			<div style={styles.container}>
-				<div className="container text-center">
-					<h3>LOG IN</h3>
-					<p>Log in with the email address you registered with and start joining new startups</p>
-					{errorDisplay}
-					<form
-						className="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3"
-						style={styles.form}
-						onSubmit={this.loginUser}>
-						<div className="form-group">
-							<input
-								type="email"
-								className="form-control"
-								placeholder="Email"
-								onChange={e => this.setState({email: e.target.value})}
-								/>
-						</div>
-						<div className="form-group">
-							<input
-								type="password"
-								className="form-control"
-								placeholder="Password"
-								onChange={e => this.setState({password: e.target.value})}
-								/>
-						</div>
+			<div>
+				<Navbar1 />
+				<div style={styles.container}>
+					<div className="container text-center">
+						<h3>LOG IN</h3>
+						<p>Log in with the email address you registered with and start joining new startups</p>
+						{errorDisplay}
+						<form
+							className="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3"
+							style={styles.form}
+							onSubmit={this.loginUser}>
+							<div className="form-group">
+								<input
+									type="email"
+									className="form-control"
+									placeholder="Email"
+									onChange={e => this.setState({email: e.target.value})}
+									/>
+							</div>
+							<div className="form-group">
+								<input
+									type="password"
+									className="form-control"
+									placeholder="Password"
+									onChange={e => this.setState({password: e.target.value})}
+									/>
+							</div>
 
-						<Link to="/">
+							<Link to="/">
+								<button
+									type="button"
+									className="btn btn-default"
+									style={styles.buttons}>
+									Cancel
+								</button>
+							</Link>
+
 							<button
-								type="button"
+								type="submit"
 								className="btn btn-default"
 								style={styles.buttons}>
-								Cancel
+								Log in
 							</button>
-						</Link>
 
-						<button
-							type="submit"
-							className="btn btn-default"
-							style={styles.buttons}>
-							Log in
-						</button>
-
-					</form>
+						</form>
+					</div>
 				</div>
 			</div>
 		)

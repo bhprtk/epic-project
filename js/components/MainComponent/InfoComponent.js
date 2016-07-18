@@ -4,8 +4,9 @@ import React from 'react';
 export default class InfoComponent extends React.Component {
 	render() {
 		return(
-			<div style={styles.container}>
-
+			<div style={styles.container} className="text-center">
+				<h3 style={styles.about}>About</h3>
+				<hr/>
 				<div className="text-center" style={styles.banner}>
 					<div className="container">
 
@@ -76,5 +77,8 @@ const styles = {
 	info: {
 		paddingTop: 80
 
+	},
+	about: {
+		color: '#696969'
 	}
 }
