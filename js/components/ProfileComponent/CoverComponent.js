@@ -29,9 +29,14 @@ export default class CoverComponent extends React.Component {
 		_currentUser = this.props.currentUser;
 
 		return (
+			<div>
+
+				<div style={styles.banner}>
+
+				</div>
 				<div
-					style={styles.container}>
-					<div className="container text-center">
+					style={styles.container} className="text-center">
+					<div className="container">
 						<img
 							src={_currentUser.picture}
 							style={styles.profilePic}
@@ -46,46 +51,47 @@ export default class CoverComponent extends React.Component {
 						<If condition={_currentUser.location}>
 							<p className="col-md-6 col-md-offset-3" style={styles.paragraphs}>
 								<i className="fa fa-map-marker"></i> {_currentUser.location}
+								</p>
+							</If>
+
+
+							<p className="col-md-6 col-md-offset-3" style={styles.paragraphs}>
+
+								<If condition={_currentUser.angelListLink}>
+									<a style={styles.socialLink} href={_currentUser.angelListLink} target="_blank">
+										<i className="fa fa-angellist fa-2x" style={styles.socialButtons}> </i>
+									</a>
+								</If>
+
+								<If condition={_currentUser.linkedInLink}>
+									<a href={_currentUser.linkedInLink} style={styles.socialLink} target="_blank">
+										<i className="fa fa-linkedin-square fa-2x" style={styles.socialButtons}> </i>
+									</a>
+								</If>
+
+								<If condition={_currentUser.twitterLink}>
+									<a href={_currentUser.twitterLink} style={styles.socialLink} target="_blank">
+										<i className="fa fa-twitter-square fa-2x" style={styles.socialButtons}> </i>
+									</a>
+								</If>
+
+								<If condition={_currentUser.facebookLink}>
+									<a href={_currentUser.facebookLink} style={styles.socialLink} target="_blank">
+										<i className="fa fa-facebook-square fa-2x" style={styles.socialButtons}> </i>
+									</a>
+								</If>
+
+								<If condition={_currentUser.githubLink}>
+									<a href={_currentUser.githubLink} style={styles.socialLink} target="_blank">
+										<i className="fa fa-github-square fa-2x" style={styles.socialButtons}> </i>
+									</a>
+								</If>
+
 							</p>
-						</If>
 
-
-						<p className="col-md-6 col-md-offset-3" style={styles.paragraphs}>
-
-							<If condition={_currentUser.angelListLink}>
-								<a style={styles.socialLink} href={_currentUser.angelListLink} target="_blank">
-									<i className="fa fa-angellist fa-2x" style={styles.socialButtons}> </i>
-								</a>
-							</If>
-
-							<If condition={_currentUser.linkedInLink}>
-								<a href={_currentUser.linkedInLink} style={styles.socialLink} target="_blank">
-									<i className="fa fa-linkedin-square fa-2x" style={styles.socialButtons}> </i>
-								</a>
-							</If>
-
-							<If condition={_currentUser.twitterLink}>
-								<a href={_currentUser.twitterLink} style={styles.socialLink} target="_blank">
-									<i className="fa fa-twitter-square fa-2x" style={styles.socialButtons}> </i>
-								</a>
-							</If>
-
-							<If condition={_currentUser.facebookLink}>
-								<a href={_currentUser.facebookLink} style={styles.socialLink} target="_blank">
-									<i className="fa fa-facebook-square fa-2x" style={styles.socialButtons}> </i>
-								</a>
-							</If>
-
-							<If condition={_currentUser.githubLink}>
-								<a href={_currentUser.githubLink} style={styles.socialLink} target="_blank">
-									<i className="fa fa-github-square fa-2x" style={styles.socialButtons}> </i>
-								</a>
-							</If>
-
-						</p>
-
+						</div>
 					</div>
-				</div>
+			</div>
 
 		)
 	}
@@ -94,13 +100,14 @@ export default class CoverComponent extends React.Component {
 const styles = {
 	container: {
 		// height: "30vh",
-		background: '#222',
-		color: '#fff'
+		// background: '#222',
+		color: '#696969'
+		// position: 'absolute'
 	},
 	profilePic: {
-		marginTop: 20,
-		height: 150,
-		width: 150,
+		marginTop: 100,
+		height: 200,
+		width: 200,
 	},
 	editBtn: {
 		marginBottom: 10,
@@ -117,5 +124,12 @@ const styles = {
 	},
 	socialLink: {
 		color: 'white'
+	},
+	banner: {
+		position: 'absolute',
+		width: '100%',
+		height: 200,
+		background: '#222',
+		zIndex: '-1'
 	}
 }

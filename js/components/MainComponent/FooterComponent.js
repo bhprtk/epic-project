@@ -16,21 +16,21 @@ export default class FooterComponent extends React.Component {
 					</div>
 
 					<div className="col-md-4 text-center">
-						Connect via social media
+						<p style={styles.subText}><strong>Connect via social media:</strong></p>
 						<p>
-							<a href="https://github.com/lazy-monk" target="_blank">
+							<a role="button" href="https://github.com/lazy-monk" target="_blank">
 								<i className="fa fa-github-square fa-3x" style={styles.social}></i>
 
 							</a>
-							<a href="https://angel.co/lazy-monk" target="_blank">
+							<a role="button" href="https://angel.co/lazy-monk" target="_blank">
 								<i className="fa fa-angellist fa-3x" style={styles.social}></i>
 							</a>
-							<a href="https://www.linkedin.com/in/pratik-bhandari-b00032115" target="_blank">
+							<a role="button" href="https://www.linkedin.com/in/pratik-bhandari-b00032115" target="_blank">
 								<i className="fa fa-linkedin-square fa-3x" style={styles.social}></i>
 
 							</a>
 						</p>
-						<a role="button" className="btn btn-success" href="mailto:lazy.monk.13@gmail.com" style={styles.emailBtn}>
+						<a role="button" className="btn btn-default btn-lg" href="mailto:lazy.monk.13@gmail.com" style={styles.emailBtn}>
 							<span className="fa fa-paper-plane" style={styles.icon}></span>
 							Email
 						</a>
@@ -62,7 +62,7 @@ const styles = {
 		width: 100,
 	},
 	social: {
-		marginRight: 10,
+		marginRight: 20,
 		marginTop: 20,
 		marginBottom: 20,
 	},
@@ -70,9 +70,16 @@ const styles = {
 		marginRight: 10
 	},
 	emailBtn: {
-		background: '#197319'
+		// background: '#197319'
+		color: 'red',
+		borderColor: 'red'
 	},
 	repoBtn: {
-		marginTop: 40
+		marginTop: 40,
+		color: 'green',
+		borderColor: 'green'
+	},
+	subText: {
+		paddingTop: 20
 	}
 }

@@ -32,12 +32,15 @@ export default class SplashComponent extends React.Component {
 								</button>
 							</Link>
 
-							<button
-								onClick={this.join}
-								className="btn btn-default btn-lg"
-								style={styles.buttons}>
-								JOIN
-							</button>
+							<Link to="/signup">
+								<button
+									onClick={this.join}
+									className="btn btn-default btn-lg"
+									style={styles.buttons}>
+									JOIN
+								</button>
+							</Link>
+
 						</div>
 
 					</div>
