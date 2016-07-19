@@ -1,4 +1,6 @@
 import React from 'react';
+import {hashHistory} from 'react-router';
+
 import Navbar2 from '../MainComponent/Navbar2';
 import API from '../../API';
 import UserStore from '../../stores/UserStore';

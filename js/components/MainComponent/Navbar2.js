@@ -10,7 +10,7 @@ export default class Navbar2 extends React.Component {
 			<div className="navbar navbar-default navbar-fixed-top" style={styles.container}>
 			  <div className="container">
 			    <div className="navbar-header">
-			      <Link to="/feed" className="navbar-brand">
+			      <Link to="/feed/menu" className="navbar-brand">
 							<strong>
 								StartMeUp
 							</strong>

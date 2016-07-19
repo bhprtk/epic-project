@@ -3,6 +3,7 @@ import React from 'react';
 import API from '../../API';
 import UserStore from '../../stores/UserStore';
 import UserListItem from './UserListItem';
+import SearchBarComponent from './SearchBarComponent';
 
 export default class PeopleComponent extends React.Component {
 

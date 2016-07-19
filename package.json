@@ -37,6 +37,7 @@
     "react-parallax": "^0.4.3",
     "react-router": "^2.5.2",
     "react-router-transition": "0.0.5",
+    "react-search-input": "^0.10.1",
     "webpack": "^1.12.9"
   },
   "devDependencies": {

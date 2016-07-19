@@ -5,6 +5,7 @@ import MainComponent from "./components/MainComponent/MainComponent";
 import LoginComponent from "./components/MainComponent/LoginComponent";
 import SignupComponent from "./components/MainComponent/SignupComponent";
 import FeedComponent from "./components/FeedComponent/FeedComponent";
+import MenuComponent from "./components/FeedComponent/MenuComponent";
 import ProfileComponent from "./components/ProfileComponent/ProfileComponent";
 import ViewProfileComponent from "./components/ProfileComponent/ViewProfileComponent";
 import StartupComponent from "./components/StartupComponent/StartupComponent";
@@ -25,6 +26,9 @@ ReactDOM.render(
       <Route path="signup" component={SignupComponent}/>
       <Route path="login" component={LoginComponent}/>
       <Route path="feed" component={FeedComponent}>
+
+        <Route path="menu" component={MenuComponent} />
+
         <Route path="profile" component={ProfileComponent} />
         <Route path="viewProfile/:userId" component={ViewProfileComponent} />
         <Route path="startup" component={StartupComponent} />
