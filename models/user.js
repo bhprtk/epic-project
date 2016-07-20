@@ -22,6 +22,7 @@ let userSchema = new mongoose.Schema({
 	twitterLink: String,
 	facebookLink: String,
 	githubLink: String,
+	companiesAdded: [{type: mongoose.Schema.Types.ObjectId, ref:'Company'}]
 })
 
 userSchema.statics.updateUser = (userId, newData, cb) => {
