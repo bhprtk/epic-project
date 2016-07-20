@@ -14,7 +14,7 @@ export default class EditCoverButtonsComponent extends React.Component {
 
 		this.state = {
 			editProfile: false,
-			manageCompanies: false,
+			showManageCompanies: false,
 		}
 
 		this.saveEdit = this.saveEdit.bind(this);
@@ -62,7 +62,7 @@ export default class EditCoverButtonsComponent extends React.Component {
 										<button
 											className="btn btn-default"
 											style={styles.manageCompanies}
-											onClick={() => {this.setState({manageCompanies: true})}}>
+											onClick={() => {this.setState({showManageCompanies: true})}}>
 											<strong>Manage Companies</strong>
 										</button>
 
@@ -93,14 +93,43 @@ export default class EditCoverButtonsComponent extends React.Component {
 										<strong>Save</strong>
 									</button>
 
-								</div>
+								</div>;
+		}
+		if(this.state.showManageCompanies) {
+			_buttons = <div className="container">
+				<button
+					className="btn btn-default"
+					style={styles.cancelBtn}
+					onClick={() => {
+						this.setState({showManageCompanies: false});
+					}}>
+					<strong>Cancel</strong>
+				</button>
+				<button
+					className="btn btn-default"
+					style={styles.saveBtn}
+					onClick={() => console.log('yup')}>
+					<strong>Save</strong>
+				</button>
+
+			</div>;
+
 		}
 
 		return (
 			<div>
 
-				{_buttons}
-				{_display}
+					{_buttons}
+
+
+				<If condition={!this.state.showManageCompanies}>
+					{_display}
+				</If>
+
+				<If condition={this.state.showManageCompanies}>
+					<ManageCompanies />
+				</If>
+
 			</div>
 		)
 	}

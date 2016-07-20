@@ -6,6 +6,7 @@ import classNames from 'classnames';
 
 import API from '../../API';
 import UserStore from '../../stores/UserStore';
+import NewsComponent from './NewsComponent';
 
 export default class MenuComponent extends React.Component {
 	constructor(props) {
@@ -48,9 +49,9 @@ export default class MenuComponent extends React.Component {
 			'animated shake': this.state.hoveringFind,
 		})
 		return (
-
-			<div style={styles.container}>
-				<If condition={currentUser}>
+			<div>
+				<div style={styles.container}>
+					<If condition={currentUser}>
 						<div className="container">
 
 							<div className="text-center col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3" style={styles.displayHello}>
@@ -79,43 +80,43 @@ export default class MenuComponent extends React.Component {
 								</div>
 
 
-									<div className={startup}
-										onMouseEnter={() => this.setState({hoveringStartup: true})}
-										onMouseLeave={() => this.setState({hoveringStartup: false})}>
+								<div className={startup}
+									onMouseEnter={() => this.setState({hoveringStartup: true})}
+									onMouseLeave={() => this.setState({hoveringStartup: false})}>
 
-										<Link to="/feed/startup" style={styles.links}>
-											<div className=" col-md-6 col-sm-6" style={styles.media}>
-												<div style={styles.block}>
-													<img style={styles.profilePic} src='./rocket.png' />
+									<Link to="/feed/startup" style={styles.links}>
+										<div className=" col-md-6 col-sm-6" style={styles.media}>
+											<div style={styles.block}>
+												<img style={styles.profilePic} src='./rocket.png' />
 
-													<h3>
-														Create Startup
-													</h3>
+												<h3>
+													Create Startup
+												</h3>
 
-												</div>
 											</div>
+										</div>
 
-										</Link>
-									</div>
+									</Link>
+								</div>
 
-									<div className={find}
-										onMouseEnter={() => this.setState({hoveringFind: true})}
-										onMouseLeave={() => this.setState({hoveringFind: false})}>
+								<div className={find}
+									onMouseEnter={() => this.setState({hoveringFind: true})}
+									onMouseLeave={() => this.setState({hoveringFind: false})}>
 
-										<Link to="/feed/find" style={styles.links}>
-											<div className=" col-md-6 col-sm-6" style={styles.media}>
-												<div style={styles.block}>
-													<img style={styles.profilePic} src='./briefcase.png' />
+									<Link to="/feed/find" style={styles.links}>
+										<div className=" col-md-6 col-sm-6" style={styles.media}>
+											<div style={styles.block}>
+												<img style={styles.profilePic} src='./briefcase.png' />
 
-													<h3>
-														Join Startup
-													</h3>
+												<h3>
+													Join Startup
+												</h3>
 
-												</div>
 											</div>
+										</div>
 
-										</Link>
-									</div>
+									</Link>
+								</div>
 
 
 
@@ -124,7 +125,12 @@ export default class MenuComponent extends React.Component {
 						</div>
 
 
-				</If>
+					</If>
+
+
+				</div>
+				<NewsComponent />
+
 			</div>
 
 
