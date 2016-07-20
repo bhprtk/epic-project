@@ -49,7 +49,7 @@ export default class LoginComponent extends React.Component {
 			}, 3000);
 		} else {
 			API.getCurrentUser();
-			hashHistory.push('/feed');
+			hashHistory.push('/feed/menu');
 		}
 	}
 
