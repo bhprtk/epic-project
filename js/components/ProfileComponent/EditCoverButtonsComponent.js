@@ -6,6 +6,7 @@ import EditCoverComponent from './EditCoverComponent';
 import EditActions from '../../actions/EditActions'
 import API from '../../API';
 import UserStore from '../../stores/UserStore';
+import ManageCompanies from './ManageCompanies';
 
 export default class EditCoverButtonsComponent extends React.Component {
 	constructor(props) {
@@ -55,21 +56,21 @@ export default class EditCoverButtonsComponent extends React.Component {
 											className="btn btn-default"
 											style={styles.editCover}
 											onClick={() => {this.setState({editCover: true})}}>
-											Edit Profile
+											<strong>Edit Profile</strong>
 										</button>
 
 										<button
 											className="btn btn-default"
 											style={styles.manageCompanies}
 											onClick={() => {this.setState({manageCompanies: true})}}>
-											Manage Companies
+											<strong>Manage Companies</strong>
 										</button>
 
 										<button
 											className="btn btn-default pull-right"
 											style={styles.logoutBtn}
 											onClick={this.logout}>
-											Logout
+											<strong>Logout</strong>
 										</button>
 
 									</div>;
@@ -83,13 +84,13 @@ export default class EditCoverButtonsComponent extends React.Component {
 										onClick={() => {
 											this.setState({editCover: false});
 										}}>
-										Cancel
+										<strong>Cancel</strong>
 									</button>
 									<button
 										className="btn btn-default"
 										style={styles.saveBtn}
 										onClick={this.saveEdit}>
-										Save
+										<strong>Save</strong>
 									</button>
 
 								</div>
@@ -110,26 +111,33 @@ const styles = {
 		marginBottom: 10,
 		marginTop: -10,
 		color: 'green',
-		borderColor: 'green'
+		borderColor: 'green',
+		borderWidth: 2
+
 	},
 	logoutBtn: {
 		marginBottom: 10,
 		marginTop: -10,
 		color: '#d9534f',
-		borderColor: '#d9534f'
+		borderColor: '#d9534f',
+		borderWidth: 2
+
 	},
 	saveBtn: {
 		marginRight: 10,
 		width: 75,
 		color: '#449d44',
-		borderColor: '#449d44'
+		borderColor: '#449d44',
+		borderWidth: 2
 
 	},
 	cancelBtn: {
 		marginRight: 10,
 		width: 75,
-		color: 'red',
-		borderColor: 'red'
+		color: '#d9534f',
+		borderColor: '#d9534f',
+		borderWidth: 2
+
 	},
 	manageCompanies: {
 		marginLeft: 10,
@@ -137,5 +145,7 @@ const styles = {
 		marginTop: -10,
 		color: '#337ab7',
 		borderColor: '#337ab7',
+		borderWidth: 2
+
 	}
 }
