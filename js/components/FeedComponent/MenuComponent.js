@@ -52,6 +52,12 @@ export default class MenuComponent extends React.Component {
 			<div style={styles.container}>
 				<If condition={currentUser}>
 						<div className="container">
+
+							<div className="text-center col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3" style={styles.displayHello}>
+								<h3>Hello {currentUser.displayName}</h3>
+								<p>What would you like to do?</p>
+							</div>
+
 							<div className="text-center" style={styles.mainDiv}>
 
 								<div className={people}
@@ -151,6 +157,12 @@ const styles = {
 		color: '#fff'
 	},
 	mainDiv: {
-		paddingTop: 150
+		paddingTop: 200
+	},
+	displayHello: {
+		marginTop: 50,
+		borderColor: '#fff',
+		borderWidth: 2,
+		borderStyle: 'solid',
 	}
 }

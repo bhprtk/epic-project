@@ -25,6 +25,7 @@ ReactDOM.render(
     <Route path="/" component={MainComponent} />
       <Route path="signup" component={SignupComponent}/>
       <Route path="login" component={LoginComponent}/>
+      
       <Route path="feed" component={FeedComponent}>
 
         <Route path="menu" component={MenuComponent} />
