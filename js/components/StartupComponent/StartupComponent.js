@@ -1,6 +1,7 @@
 import React from 'react';
 
 import API from '../../API';
+import CompaniesStore from '../../stores/CompaniesStore';
 
 export default class StartupComponent extends React.Component {
 
@@ -8,11 +9,24 @@ export default class StartupComponent extends React.Component {
 		super(props);
 
 		this.submitForm = this.submitForm.bind(this);
+		this.newCompany = this.newCompany.bind(this);
 	}
 
 	submitForm(e) {
 		e.preventDefault();
 		API.addCompany(this.state);
+	}
+
+	newCompany() {
+		console.log('loool', CompaniesStore.getNewCompany());
+	}
+
+	componentDidMount() {
+		CompaniesStore.on("newCompany", this.newCompany);
+	}
+
+	componentWillUnmount() {
+		CompaniesStore.removeListener("newCompany", this.newCompany);
 	}
 
 	render() {
@@ -83,7 +97,7 @@ export default class StartupComponent extends React.Component {
 						<div className="form-group">
 							<p className="col-sm-3 control-label">Team size</p>
 							<div className="col-sm-2">
-								<select className="form-control" onChange={e => this.setState({teamSize: e.target.value})}>
+								<select className="form-control" onChange={e => this.setState({teamSize: e.target.value})} defaultValue="1-10">
 									<option value="1-10">1-10</option>
 									<option value="11-50">11-50</option>
 									<option value="51-200">51-200</option>

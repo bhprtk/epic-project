@@ -39,13 +39,13 @@ export default class MenuComponent extends React.Component {
 	render() {
 		let currentUser = this.state.currentUser;
 		let people = classNames({
-			'animated pulse': this.state.hoveringPeople,
+			'animated tada': this.state.hoveringPeople,
 		})
 		let startup = classNames({
-			'animated pulse': this.state.hoveringStartup,
+			'animated jello': this.state.hoveringStartup,
 		})
 		let find = classNames({
-			'animated pulse': this.state.hoveringFind,
+			'animated shake': this.state.hoveringFind,
 		})
 		return (
 

@@ -8,4 +8,5 @@ export let ActionTypes = {
 	ALL_USERS: 'ALL_USERS',
 	ONE_USER: 'ONE_USER',
 	LOGOUT_USER: 'LOGOUT_USER',
+	NEW_COMPANY: 'NEW_COMPANY',
 };

@@ -7,6 +7,13 @@ let CompanyActions = {
 			actionType: ActionTypes.ALL_COMPANIES,
 			companies
 		})
+	},
+
+	newCompany(company) {
+		AppDispatcher.dispatch({
+			actionType: ActionTypes.NEW_COMPANY,
+			company
+		})
 	}
 }
 

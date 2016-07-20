@@ -52,7 +52,7 @@ let API = {
 	addCompany(company) {
 		post('/companies/addNewCompany', company)
 			.then(res => {
-				console.log('res', res);
+				CompanyActions.newCompany(res);
 			})
 			.catch(err => {
 				console.log('err', err);

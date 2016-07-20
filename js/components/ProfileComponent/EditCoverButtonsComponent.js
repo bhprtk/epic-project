@@ -12,7 +12,8 @@ export default class EditCoverButtonsComponent extends React.Component {
 		super(props);
 
 		this.state = {
-			editProfile: false
+			editProfile: false,
+			manageCompanies: false,
 		}
 
 		this.saveEdit = this.saveEdit.bind(this);
@@ -49,11 +50,19 @@ export default class EditCoverButtonsComponent extends React.Component {
 		let _display = <CoverComponent currentUser={this.props.currentUser}/>;
 		let _buttons = <div
 										className="container">
+
 										<button
 											className="btn btn-default"
 											style={styles.editCover}
 											onClick={() => {this.setState({editCover: true})}}>
 											Edit Profile
+										</button>
+
+										<button
+											className="btn btn-default"
+											style={styles.manageCompanies}
+											onClick={() => {this.setState({manageCompanies: true})}}>
+											Manage Companies
 										</button>
 
 										<button
@@ -106,19 +115,27 @@ const styles = {
 	logoutBtn: {
 		marginBottom: 10,
 		marginTop: -10,
-		color: 'red',
-		borderColor: 'red'
+		color: '#d9534f',
+		borderColor: '#d9534f'
 	},
 	saveBtn: {
 		marginRight: 10,
 		width: 75,
-		color: 'green',
-		borderColor: 'green'
+		color: '#449d44',
+		borderColor: '#449d44'
+
 	},
 	cancelBtn: {
 		marginRight: 10,
 		width: 75,
 		color: 'red',
 		borderColor: 'red'
+	},
+	manageCompanies: {
+		marginLeft: 10,
+		marginBottom: 10,
+		marginTop: -10,
+		color: '#337ab7',
+		borderColor: '#337ab7',
 	}
 }
