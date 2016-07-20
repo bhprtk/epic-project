@@ -127,7 +127,7 @@ export default class EditCoverButtonsComponent extends React.Component {
 				</If>
 
 				<If condition={this.state.showManageCompanies}>
-					<ManageCompanies />
+					<ManageCompanies currentUser={this.props.currentUser}/>
 				</If>
 
 			</div>

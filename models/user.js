@@ -74,7 +74,9 @@ userSchema.statics.isLoggedIn = (req, res, next) => {
 			}
 			req.user = user;
 			next();
-		}).select('-password');
+		})
+		.select('-password')
+		.populate('companiesAdded');
 	})
 }
 
