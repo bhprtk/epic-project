@@ -9,7 +9,14 @@ router.post('/addNewCompany', User.isLoggedIn, (req, res) => {
 	Company.addNewCompany(req.body, req.user._id, (err, savedCompany) => {
 		if(err) res.status(400).send(err);
 
-		res.send(savedCompany);
+		User.findById(req.user._id, (err, user) => {
+			user.companiesAdded.push(savedCompany._id);
+			user.save((err, savedUser) => {
+				if(err) res.status(400).send(err);
+
+				res.send(savedCompany);
+			})
+		})
 	})
 })
 
